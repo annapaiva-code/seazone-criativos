@@ -17,6 +17,8 @@ output/**/*.mp3
 !output/VA1.1/reels_9x16.mp4
 !output/VA1.1/reels_9x16_narrado_final.mp4
 !output/VA1.1/feed_1x1_narrado_final.mp4
+!output/VN1.1/reels_9x16_narrado_final.mp4
+!output/VN1.1/feed_1x1_narrado_final.mp4
 assets/**/*.mp4
 assets/**/*.mov
 assets/**/*.MOV
