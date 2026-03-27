@@ -22,10 +22,10 @@ assets/**/*.mov
 assets/**/*.MOV
 
 # Imagens pesadas geradas por cena
-output/VN1.1/*.png
 output/VN1.1/*.jpg
-output/VA1.1/*.png
 output/VA1.1/*.jpg
+output/VN1.1/*_narrado.mp4
+output/VA1.1/*_narrado.mp4
 
 # Imagens originais dos estáticos (geradas — recriáveis com npm run)
 output/E1.1/*.jpg
