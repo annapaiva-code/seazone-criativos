@@ -20,13 +20,17 @@ async function build() {
   const outputAssets = path.join(ROOT, 'output', 'assets');
   await fs.ensureDir(outputAssets);
 
-  const imgExts = ['.png', '.jpg', '.jpeg', '.webp', '.gif'];
-  const files = await fs.readdir(assetsDir);
-  for (const file of files) {
-    if (imgExts.includes(path.extname(file).toLowerCase())) {
-      await fs.copy(path.join(assetsDir, file), path.join(outputAssets, file));
-      console.log(`+ assets/${file}`);
+  if (await fs.pathExists(assetsDir)) {
+    const imgExts = ['.png', '.jpg', '.jpeg', '.webp', '.gif'];
+    const files = await fs.readdir(assetsDir);
+    for (const file of files) {
+      if (imgExts.includes(path.extname(file).toLowerCase())) {
+        await fs.copy(path.join(assetsDir, file), path.join(outputAssets, file));
+        console.log(`+ assets/${file}`);
+      }
     }
+  } else {
+    console.log('assets/ não encontrado — pulando cópia de imagens.');
   }
 
   console.log('\nBuild concluído. output/ pronto para deploy.');
