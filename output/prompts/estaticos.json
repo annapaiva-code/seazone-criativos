@@ -1,0 +1,80 @@
+{
+  "_gerado_em": "2026-03-26T18:48:57.858Z",
+  "_instrucoes": "Use estes prompts em ferramentas de geracao de imagem (fal.ai Flux Pro, Midjourney, DALL-E). Os assets de referencia podem ser usados como image_url para img2img.",
+  "formatos": {
+    "feed_1x1": {
+      "aspecto": "1:1",
+      "resolucao": "1024x1024",
+      "prompt_en": "Aerial drone shot of Novo Campeche, Florianópolis. The scene captures a real coastal neighborhood with low-rise white buildings, a vibrant green grassy field, a clear turquoise sea with gentle waves in the background, and well-maintained tree-lined streets under a bright, clean blue sky. Cinematic quality, vibrant colors. Focus on the actual terrain of SPOT II.",
+      "prompt_composicao": "pin de localização no topo esquerdo, badge LANÇAMENTO no centro esquerdo, headline e bloco financeiro coral na metade inferior, logo Seazone canto superior direito, disclaimer no rodapé",
+      "overlay_elements": {
+        "pin_localizacao": "Novo Campeche SPOT II",
+        "badge": "LANÇAMENTO",
+        "headline": "Retorno projetado de 16,4% ao ano.",
+        "subheadline": "Rendimento mensal estimado de R$ 5.500,00.",
+        "destaque_financeiro": "16,4% ao ano de retorno líquido com aluguel por temporada",
+        "cta": "Saiba Mais",
+        "logo": "assets/logo.png",
+        "disclaimer": true
+      },
+      "assets_referencia": [
+        "assets/Estático- Feed.jpg"
+      ],
+      "assets_base": [
+        "assets/fachada.png",
+        "assets/vista aerea 2.png",
+        "assets/vista aerea.jpeg",
+        "assets/vista aerea.png"
+      ]
+    },
+    "reels_9x16": {
+      "aspecto": "9:16",
+      "resolucao": "576x1024",
+      "prompt_en": "Aerial drone shot of Novo Campeche, Florianópolis. The scene captures a real coastal neighborhood with low-rise white buildings, a vibrant green grassy field, a clear turquoise sea with gentle waves in the background, and well-maintained tree-lined streets under a bright, clean blue sky. Cinematic quality, vibrant colors. Focus on the actual terrain of SPOT II.",
+      "prompt_composicao": "pin de localização no topo esquerdo, badge LANÇAMENTO no centro esquerdo, headline e bloco financeiro coral na metade inferior, logo Seazone canto superior direito, disclaimer no rodapé",
+      "overlay_elements": {
+        "pin_localizacao": "Novo Campeche SPOT II",
+        "badge": "LANÇAMENTO",
+        "headline": "Retorno projetado de 16,4% ao ano.",
+        "subheadline": "Rendimento mensal estimado de R$ 5.500,00.",
+        "destaque_financeiro": "16,4% ao ano de retorno líquido com aluguel por temporada",
+        "cta": "Saiba Mais",
+        "logo": "assets/logo.png",
+        "disclaimer": true
+      },
+      "assets_referencia": [
+        "assets/Estáticos - Reels.jpg"
+      ],
+      "assets_base": [
+        "assets/fachada.png",
+        "assets/vista aerea 2.png",
+        "assets/vista aerea.jpeg",
+        "assets/vista aerea.png"
+      ]
+    },
+    "story_9x16": {
+      "aspecto": "9:16",
+      "resolucao": "576x1024",
+      "prompt_en": "Aerial drone shot of Novo Campeche, Florianópolis. The scene captures a real coastal neighborhood with low-rise white buildings, a vibrant green grassy field, a clear turquoise sea with gentle waves in the background, and well-maintained tree-lined streets under a bright, clean blue sky. Cinematic quality, vibrant colors. Focus on the actual terrain of SPOT II.",
+      "prompt_composicao": "pin de localização no topo esquerdo, badge LANÇAMENTO no centro esquerdo, headline e bloco financeiro coral na metade inferior, logo Seazone canto superior direito, disclaimer no rodapé",
+      "overlay_elements": {
+        "pin_localizacao": "Novo Campeche SPOT II",
+        "badge": "LANÇAMENTO",
+        "headline": "Retorno projetado de 16,4% ao ano.",
+        "subheadline": "Rendimento mensal estimado de R$ 5.500,00.",
+        "destaque_financeiro": "16,4% ao ano de retorno líquido com aluguel por temporada",
+        "cta": "Saiba Mais",
+        "logo": "assets/logo.png",
+        "disclaimer": true
+      },
+      "assets_referencia": [
+        "assets/Estáticos - Story.jpg"
+      ],
+      "assets_base": [
+        "assets/fachada.png",
+        "assets/rooftop 2.png",
+        "assets/rooftop.png"
+      ]
+    }
+  }
+}

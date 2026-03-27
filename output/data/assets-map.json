@@ -1,0 +1,96 @@
+{
+  "_gerado_em": "2026-03-26T18:48:17.427Z",
+  "_diretorio": "assets/",
+  "branding": [
+    {
+      "arquivo": "logo.png",
+      "caminho": "assets/logo.png"
+    }
+  ],
+  "referencias": [
+    {
+      "arquivo": "Estático- Feed.jpg",
+      "caminho": "assets/Estático- Feed.jpg"
+    },
+    {
+      "arquivo": "Estáticos - Reels.jpg",
+      "caminho": "assets/Estáticos - Reels.jpg"
+    },
+    {
+      "arquivo": "Estáticos - Story.jpg",
+      "caminho": "assets/Estáticos - Story.jpg"
+    }
+  ],
+  "empreendimento": [
+    {
+      "arquivo": "caminho até a praia.png",
+      "caminho": "assets/caminho até a praia.png"
+    },
+    {
+      "arquivo": "fachada.png",
+      "caminho": "assets/fachada.png"
+    },
+    {
+      "arquivo": "rooftop 2.png",
+      "caminho": "assets/rooftop 2.png"
+    },
+    {
+      "arquivo": "rooftop.png",
+      "caminho": "assets/rooftop.png"
+    },
+    {
+      "arquivo": "vista aerea 2.png",
+      "caminho": "assets/vista aerea 2.png"
+    },
+    {
+      "arquivo": "vista aerea.jpeg",
+      "caminho": "assets/vista aerea.jpeg"
+    },
+    {
+      "arquivo": "vista aerea.png",
+      "caminho": "assets/vista aerea.png"
+    }
+  ],
+  "apresentadora": [
+    {
+      "arquivo": "Mônica 2.jpeg",
+      "caminho": "assets/Mônica 2.jpeg"
+    },
+    {
+      "arquivo": "Mônica costas.jpeg",
+      "caminho": "assets/Mônica costas.jpeg"
+    },
+    {
+      "arquivo": "Mônica.MOV",
+      "caminho": "assets/Mônica.MOV"
+    },
+    {
+      "arquivo": "Mônica.jpeg",
+      "caminho": "assets/Mônica.jpeg"
+    },
+    {
+      "arquivo": "monica-foto2.jpg",
+      "caminho": "assets/monica-foto2.jpg"
+    }
+  ],
+  "videos_referencia": [
+    {
+      "arquivo": "FEED-Narrados_Novo Campeche II 1.1.mp4",
+      "caminho": "assets/FEED-Narrados_Novo Campeche II 1.1.mp4"
+    },
+    {
+      "arquivo": "Reels-Novo Campeche II-Apresentadora-Estrutura 1.1.mp4",
+      "caminho": "assets/Reels-Novo Campeche II-Apresentadora-Estrutura 1.1.mp4"
+    }
+  ],
+  "branding_raiz": [
+    {
+      "arquivo": "logo seazone.png",
+      "caminho": "logo seazone.png"
+    },
+    {
+      "arquivo": "Casinha-3.png",
+      "caminho": "Casinha-3.png"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "buildCommand": "node build.js",
+  "installCommand": "npm install",
+  "outputDirectory": "output",
+  "framework": null,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/visualizar.html" }
+  ]
+}

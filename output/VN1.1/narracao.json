@@ -1,0 +1,35 @@
+{
+  "job": "VN1.1",
+  "voz": "Calm_Woman",
+  "gerado_em": "2026-03-27T19:21:04.089Z",
+  "audios": [
+    {
+      "cena": 1,
+      "tempo": "0-7s",
+      "arquivo": "output/VN1.1/narracao_cena_1.mp3",
+      "duracao_ms": 10083,
+      "tipo": "narracao"
+    },
+    {
+      "cena": 2,
+      "tempo": "8-15s",
+      "arquivo": "output/VN1.1/narracao_cena_2.mp3",
+      "duracao_ms": 11441,
+      "tipo": "narracao"
+    },
+    {
+      "cena": 3,
+      "tempo": "16-23s",
+      "arquivo": "output/VN1.1/narracao_cena_3.mp3",
+      "duracao_ms": 13061,
+      "tipo": "narracao"
+    },
+    {
+      "cena": 4,
+      "tempo": "24-35s",
+      "arquivo": "output/VN1.1/narracao_cena_4.mp3",
+      "duracao_ms": 6948,
+      "tipo": "narracao"
+    }
+  ]
+}

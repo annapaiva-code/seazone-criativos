@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seazone — Maquina de Criativos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0055FF;
+    --navy: #00143D;
+    --coral: #FC6058;
+    --blue-soft: #6593FF;
+    --bg: #00143D;
+    --text: #FFFFFF;
+    --border: rgba(255,255,255,0.08);
+    --muted: rgba(255,255,255,0.4);
+    --surface: rgba(255,255,255,0.04);
+    --green: #34d399;
+    --yellow: #fbbf24;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy);
+    backdrop-filter: blur(12px);
+  }
+  .header-left { display: flex; flex-direction: column; gap: .15rem; }
+  .logo { font-size: 1.6rem; font-weight: 800; letter-spacing: 0.02em; line-height: 1; }
+  .logo .o { color: var(--coral); }
+  .logo-subtitle { font-size: .65rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.25em; color: var(--muted); }
+  .header-badge { font-size: .7rem; font-weight: 700; padding: .4rem 1rem; border-radius: 6px; background: var(--coral); color: #fff; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .status-bar { display: flex; justify-content: center; gap: 2rem; padding: .8rem 2.5rem; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.15); flex-wrap: wrap; }
+  .status-item { display: flex; align-items: center; gap: .4rem; font-size: .8rem; font-weight: 400; color: rgba(255,255,255,0.5); }
+  .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .dot.ok { background: var(--green); }
+  .dot.warn { background: var(--yellow); }
+  .dot.err { background: var(--coral); }
+
+  .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.1); }
+  .tab { padding: .8rem 1.5rem; font-size: .8rem; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; color: var(--muted); transition: all .15s; }
+  .tab:hover { color: rgba(255,255,255,0.7); }
+  .tab.active { color: #fff; border-bottom-color: var(--coral); }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 2.5rem 2rem; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .section { margin-bottom: 3.5rem; }
+  .section-header { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid var(--coral); flex-wrap: wrap; }
+  .section-badge { font-size: .7rem; font-weight: 700; padding: .25rem .65rem; border-radius: 5px; background: var(--coral); color: #fff; letter-spacing: 0.04em; }
+  .section-title { font-size: 1.2rem; font-weight: 700; }
+  .section-meta { margin-left: auto; font-size: .8rem; color: var(--muted); font-weight: 400; }
+
+  .formats-grid { display: grid; gap: 1.5rem; }
+  .formats-3 { grid-template-columns: repeat(3, 1fr); }
+  .formats-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 960px) { .formats-3, .formats-2 { grid-template-columns: 1fr; } }
+
+  .format-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+  .format-card:hover { border-color: rgba(255,255,255,0.15); }
+  .format-label { display: inline-block; margin: .8rem .8rem 0; padding: .2rem .6rem; font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #fff; background: var(--coral); border-radius: 4px; }
+  .asset-container { position: relative; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; min-height: 220px; margin: .6rem; border-radius: 10px; overflow: hidden; }
+  .asset-container img, .asset-container video { width: 100%; height: auto; display: block; border-radius: 10px; }
+  .placeholder { color: rgba(255,255,255,0.25); font-size: .85rem; text-align: center; padding: 3rem 1rem; }
+  .placeholder .icon { font-size: 2.5rem; margin-bottom: .6rem; opacity: .4; }
+  .placeholder small { display: block; margin-top: .3rem; font-size: .7rem; font-family: 'DM Sans', monospace; color: rgba(255,255,255,0.15); }
+
+  .card-copy { padding: .8rem 1rem 1rem; }
+  .card-headline { font-size: .95rem; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: .2rem; }
+  .card-subheadline { font-size: .8rem; font-weight: 400; color: rgba(255,255,255,0.5); margin-bottom: .5rem; }
+  .card-titulo { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: .5rem; }
+
+  .destaque-financeiro { background: rgba(0,85,255,0.15); border: 1px solid rgba(0,85,255,0.3); border-radius: 10px; padding: .8rem 1rem; margin: .8rem 1rem; }
+  .destaque-financeiro .roi { font-size: 1.8rem; font-weight: 800; color: var(--blue-soft); line-height: 1; }
+  .destaque-financeiro .roi-label { font-size: .75rem; font-weight: 400; color: rgba(255,255,255,0.5); margin-top: .2rem; }
+
+  .cta-btn { display: inline-block; padding: .45rem 1.2rem; background: var(--blue); color: #fff; font-size: .8rem; font-weight: 700; border-radius: 8px; border: none; letter-spacing: 0.02em; margin-top: .4rem; }
+
+  .dl-btn { display: inline-flex; align-items: center; gap: .3rem; padding: .35rem .8rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.5); border-radius: 6px; font-size: .65rem; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; text-decoration: none; transition: all .15s; text-transform: uppercase; letter-spacing: 0.04em; margin-top: .4rem; }
+  .dl-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .dl-btn svg { width: 12px; height: 12px; fill: currentColor; }
+
+  .copy-details { margin-top: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .copy-details-header { padding: .8rem 1.2rem; font-size: .85rem; font-weight: 700; color: var(--coral); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: .5rem; cursor: pointer; user-select: none; }
+  .copy-details-header:hover { background: rgba(255,255,255,0.02); }
+  .copy-details-body { padding: 1rem 1.2rem; }
+
+  .copy-field { margin-bottom: .8rem; }
+  .copy-field:last-child { margin-bottom: 0; }
+  .copy-field label { font-size: .65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); display: block; margin-bottom: .25rem; font-weight: 500; }
+  .copy-field .value { font-size: .85rem; color: rgba(255,255,255,0.85); background: rgba(0,0,0,0.2); padding: .6rem .8rem; border-radius: 8px; border: 1px solid var(--border); white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow-y: auto; line-height: 1.5; }
+
+  .legenda-wrapper { position: relative; }
+  .legenda-box { font-size: .85rem; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.03); padding: .6rem .8rem; padding-right: 3.5rem; border-radius: 8px; border: 1px solid var(--border); white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow-y: auto; line-height: 1.5; }
+  .copy-btn { position: absolute; top: .5rem; right: .5rem; padding: .3rem .6rem; font-size: .65rem; font-weight: 700; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); border-radius: 5px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .15s; text-transform: uppercase; letter-spacing: 0.06em; }
+  .copy-btn:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .copy-btn.copied { background: var(--green); color: #fff; border-color: var(--green); }
+
+  .cenas-grid { display: grid; gap: .5rem; margin-top: .4rem; }
+  .cena { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 8px; padding: .7rem .9rem; font-size: .8rem; }
+  .cena-header { display: flex; gap: .5rem; align-items: center; margin-bottom: .3rem; }
+  .cena-num { font-weight: 700; color: var(--blue-soft); font-size: .7rem; letter-spacing: 0.04em; }
+  .cena-tempo { color: var(--muted); font-size: .65rem; }
+  .cena-text { color: rgba(255,255,255,0.8); line-height: 1.5; }
+  .cena-text em { color: var(--muted); font-style: normal; font-weight: 500; font-size: .75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+  .cena-assets { margin-top: .4rem; display: flex; flex-wrap: wrap; gap: .3rem; }
+  .cena-asset-tag { font-size: .6rem; padding: .15rem .4rem; background: rgba(0,85,255,0.15); border: 1px solid rgba(0,85,255,0.2); border-radius: 4px; color: var(--blue-soft); font-weight: 500; }
+
+  .prompt-visual { margin-top: .4rem; padding: .6rem .8rem; background: rgba(0,85,255,0.06); border: 1px dashed rgba(0,85,255,0.2); border-radius: 8px; font-size: .75rem; color: rgba(255,255,255,0.35); font-family: 'DM Sans', monospace; word-break: break-word; line-height: 1.5; }
+
+  .assets-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: .8rem; margin-top: 1rem; }
+  .asset-thumb { background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; text-align: center; }
+  .asset-thumb img { width: 100%; height: 100px; object-fit: cover; }
+  .asset-thumb .name { font-size: .6rem; padding: .3rem; color: var(--muted); word-break: break-all; }
+  .asset-thumb .cat { font-size: .55rem; padding: .1rem .3rem; background: var(--coral); color: #fff; border-radius: 3px; display: inline-block; margin: .2rem; }
+
+  .video-final { margin-top: 1.5rem; }
+  .video-final-title { font-size: .75rem; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: .8rem; display: flex; align-items: center; gap: .5rem; }
+  .video-final-title .trilha-tag { font-size: .6rem; padding: .15rem .5rem; background: rgba(52,211,153,0.15); border: 1px solid rgba(52,211,153,0.3); border-radius: 4px; color: var(--green); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .video-final-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (max-width: 960px) { .video-final-grid { grid-template-columns: 1fr; } }
+  .video-final-card { background: rgba(52,211,153,0.04); border: 1px solid rgba(52,211,153,0.15); border-radius: 14px; overflow: hidden; transition: border-color .2s; }
+  .video-final-card:hover { border-color: rgba(52,211,153,0.3); }
+  .video-final-card video { width: 100%; height: auto; display: block; }
+  .video-final-card .vf-label { padding: .6rem .8rem; display: flex; justify-content: space-between; align-items: center; font-size: .75rem; }
+  .video-final-card .vf-fmt { font-weight: 700; color: var(--green); }
+  .video-final-card .vf-file { color: var(--muted); font-size: .65rem; font-family: 'DM Sans', monospace; }
+
+  .storyboard { margin-top: 1.5rem; }
+  .storyboard-title { font-size: .75rem; font-weight: 700; color: var(--blue-soft); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: .8rem; }
+  .storyboard-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; }
+  @media (max-width: 960px) { .storyboard-grid { grid-template-columns: repeat(2, 1fr); } }
+  .storyboard-frame { background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .storyboard-frame img { width: 100%; height: auto; display: block; }
+  .storyboard-frame .frame-label { padding: .4rem .6rem; font-size: .65rem; color: var(--muted); display: flex; justify-content: space-between; }
+  .storyboard-frame .frame-label .fmt-tag { color: var(--blue-soft); font-weight: 600; }
+
+  footer { text-align: center; padding: 2rem; font-size: .75rem; color: rgba(255,255,255,0.2); border-top: 1px solid var(--border); margin-top: 1rem; }
+
+  /* ── Form Gerar ──────────────────────────────────────────────────────── */
+  .form-gerar { max-width: 680px; margin: 0 auto; }
+  .form-group { margin-bottom: 1.5rem; }
+  .form-group label { display: block; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: .35rem; }
+  .form-input { width: 100%; padding: .7rem 1rem; font-size: .9rem; font-family: 'DM Sans', sans-serif; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: #fff; outline: none; transition: border-color .2s; }
+  .form-input:focus { border-color: var(--blue); }
+  .form-input::placeholder { color: rgba(255,255,255,0.18); }
+  .form-select { width: 100%; padding: .65rem 1rem; font-size: .85rem; font-family: 'DM Sans', sans-serif; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; color: #fff; cursor: pointer; outline: none; }
+  .form-select option { background: var(--navy); }
+  .form-btns { display: flex; gap: .8rem; margin-top: 1.8rem; flex-wrap: wrap; }
+  .form-btn { display: inline-flex; align-items: center; gap: .4rem; padding: .7rem 1.6rem; font-size: .85rem; font-weight: 700; font-family: 'DM Sans', sans-serif; border: none; border-radius: 10px; cursor: pointer; transition: all .15s; }
+  .form-btn:disabled { opacity: .4; cursor: not-allowed; }
+  .form-btn-primary { background: var(--coral); color: #fff; }
+  .form-btn-primary:hover:not(:disabled) { background: #e04e47; transform: translateY(-1px); }
+  .form-btn-secondary { background: var(--surface); color: #fff; border: 1px solid var(--border); }
+  .form-btn-secondary:hover:not(:disabled) { border-color: rgba(255,255,255,0.2); }
+  .extract-box { margin-top: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.2rem; display: none; }
+  .extract-box.show { display: block; }
+  .extract-title { font-size: .7rem; font-weight: 700; color: var(--coral); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: .7rem; }
+  .extract-row { display: flex; gap: .5rem; margin-bottom: .4rem; font-size: .8rem; }
+  .extract-label { color: var(--muted); min-width: 130px; flex-shrink: 0; }
+  .extract-val { color: rgba(255,255,255,0.85); word-break: break-word; }
+  .extract-val.found { color: var(--green); }
+  .extract-val.miss { color: rgba(255,255,255,0.25); font-style: italic; }
+  .gen-log { margin-top: 1.5rem; background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.2rem; display: none; max-height: 400px; overflow-y: auto; }
+  .gen-log.show { display: block; }
+  .gen-log-title { font-size: .8rem; font-weight: 700; margin-bottom: .6rem; }
+  .gen-log-body { font-size: .7rem; font-family: 'DM Sans', monospace; color: rgba(255,255,255,0.55); line-height: 1.8; white-space: pre-wrap; }
+  .gen-log-body .ok { color: var(--green); } .gen-log-body .erro { color: var(--coral); } .gen-log-body .warn { color: #fbbf24; }
+  .gen-result-link { display: inline-block; margin-top: 1rem; padding: .55rem 1.4rem; background: var(--blue); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: .8rem; }
+  .gen-result-link:hover { background: #0044cc; }
+  .server-hint { margin-top: 1rem; font-size: .72rem; color: rgba(255,255,255,0.25); line-height: 1.6; }
+  .server-hint code { background: rgba(255,255,255,0.06); padding: .15rem .4rem; border-radius: 4px; font-family: 'DM Sans', monospace; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="logo-seazone.png" alt="Seazone" style="height:32px;width:auto;object-fit:contain;" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+    <div class="logo" style="display:none;">SEAZ<span class="o">O</span>NE</div>
+    <div class="logo-subtitle">Maquina de Criativos</div>
+  </div>
+  <div class="header-badge">Novo Campeche SPOT II</div>
+</header>
+
+<div class="status-bar" id="statusBar"></div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" data-tab="gerar">Gerar</div>
+  <div class="tab" data-tab="criativos">Criativos</div>
+  <div class="tab" data-tab="assets">Assets</div>
+  <div class="tab" data-tab="prompts">Prompts</div>
+</div>
+
+<div class="container">
+  <div class="tab-content active" id="tab-gerar">
+    <div class="form-gerar">
+      <div class="section">
+        <div class="section-header">
+          <span class="section-badge">NOVO</span>
+          <span class="section-title">Gerar Criativos</span>
+        </div>
+        <p style="color:var(--muted);font-size:.85rem;line-height:1.6;margin-bottom:1.5rem;">
+          Cole o link do Lovable do empreendimento. O sistema extrai os dados da p&aacute;gina e gera automaticamente os criativos (est&aacute;ticos + storyboard de v&iacute;deo).
+        </p>
+
+        <div class="form-group">
+          <label>Link do Lovable</label>
+          <input type="url" class="form-input" id="lovableUrl" placeholder="https://seu-projeto.lovable.app">
+        </div>
+
+        <div class="form-group">
+          <label>Briefing base (opcional)</label>
+          <select class="form-select" id="briefingSelect">
+            <option value="novo_campeche_spot2.json">Novo Campeche SPOT II</option>
+            <option value="">Nenhum — usar apenas dados do Lovable</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Servidor local</label>
+          <input type="text" class="form-input" id="serverUrl" value="http://localhost:3000" placeholder="http://localhost:3000">
+        </div>
+
+        <div class="form-btns">
+          <button class="form-btn form-btn-secondary" id="btnExtrair" onclick="extrairDados()">Extrair Dados</button>
+          <button class="form-btn form-btn-primary" id="btnGerar" onclick="gerarCriativos()">Gerar Criativos</button>
+        </div>
+
+        <div class="extract-box" id="extractBox">
+          <div class="extract-title">Dados extra&iacute;dos do Lovable</div>
+          <div id="extractContent"></div>
+        </div>
+
+        <div class="gen-log" id="genLog">
+          <div class="gen-log-title">Progresso</div>
+          <div class="gen-log-body" id="genLogBody"></div>
+          <div id="genResult"></div>
+        </div>
+
+        <div class="server-hint">
+          Para gerar, o servidor local precisa estar rodando: <code>npm run server</code>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-content" id="tab-criativos"></div>
+  <div class="tab-content" id="tab-assets"></div>
+  <div class="tab-content" id="tab-prompts"></div>
+</div>
+
+<footer>
+  Seazone Creative Machine &middot; Novo Campeche SPOT II &middot; 2026
+</footer>
+
+<script>
+function esc(str) {
+  if (!str) return '';
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+function downloadAsset(url, filename) {
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename || url.split('/').pop();
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function dlBtnHTML(src) {
+  const name = src.split('/').pop();
+  return '<a class="dl-btn" href="' + src + '" download="' + name + '"><svg viewBox="0 0 16 16"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>Baixar</a>';
+}
+
+function copyToClipboard(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copiado';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+const COPY_DATA = {
+  "E1.1": {
+    "id": "E1.1",
+    "tipo": "estatico",
+    "pin_localizacao": "Novo Campeche SPOT II",
+    "badge": "LANÇAMENTO",
+    "headline": "Retorno projetado de 16,4% ao ano.",
+    "subheadline": "Rendimento mensal estimado de R$ 5.500,00.",
+    "destaque_financeiro": "16,4% ao ano de retorno líquido com aluguel por temporada",
+    "cta": "Saiba Mais",
+    "legenda_feed": "Busca um retorno projetado de 16,4% ao ano? O Novo Campeche SPOT II é a sua oportunidade. Com um rendimento mensal estimado em R$ 5.500,00, seu capital trabalha ativamente em Florianópolis.\n\nLocalizado estrategicamente no bairro Novo Campeche, a poucos minutos do aeroporto, este empreendimento é otimizado para short stay. Conte com a gestão profissional Seazone para garantir performance e renda passiva sem preocupações.\n\nInvista com a visão de futuro. O SPOT II projeta uma valorização de 81% em um dos destinos mais cobiçados do Brasil. Uma decisão inteligente para construir seu legado financeiro.\n\n#InvestimentoImobiliario #RendaPassiva #NovoCampeche #Florianopolis #Seazone #SpotII #ROI #InvestimentoInteligente\n\nEste material tem caráter exclusivamente informativo e não constitui uma promessa de rentabilidade futura ou garantia de retorno financeiro. Os resultados financeiros do investimento dependem da performance do empreendimento após sua conclusão, especialmente de futura valorização patrimonial do imóvel e da renda gerada por sua eventual locação. A Seazone não oferece garantia de rendimento fixo, retorno mínimo ou qualquer tipo de remuneração automática sobre o capital investido.",
+    "prompt_visual_en": "Aerial drone shot of Novo Campeche, Florianópolis. The scene captures a real coastal neighborhood with low-rise white buildings, a vibrant green grassy field, a clear turquoise sea with gentle waves in the background, and well-maintained tree-lined streets under a bright, clean blue sky. Cinematic quality, vibrant colors. Focus on the actual terrain of SPOT II.",
+    "notas_composicao": "pin de localização no topo esquerdo, badge LANÇAMENTO no centro esquerdo, headline e bloco financeiro coral na metade inferior, logo Seazone canto superior direito, disclaimer no rodapé"
+  },
+  "VN1.1": {
+    "id": "VN1.1",
+    "tipo": "video_narrado",
+    "duracao": "30-40s",
+    "titulo": "Investimento Estratégico em Florianópolis: Novo Campeche SPOT II",
+    "cenas": [
+      {
+        "numero": 1,
+        "tempo": "0-7s",
+        "descricao_visual": "Drone se aproximando de bairro litorâneo real com ruas arborizadas, prédios baixos residenciais, campo verde e mar turquesa ao fundo com ondas, céu azul claro. Pin de localização 'Novo Campeche SPOT II' fixo na tela.",
+        "lettering": "(pin) Novo Campeche, Florianópolis - SC",
+        "narracao": "Em Florianópolis, o Novo Campeche atrai investimentos estratégicos. Este bairro valorizado oferece oportunidades únicas."
+      },
+      {
+        "numero": 2,
+        "tempo": "8-15s",
+        "descricao_visual": "Dolly-in na fachada moderna do Novo Campeche SPOT II, com concreto, madeira ripada, vidro e vegetação tropical. O letreiro 'seazone' no rooftop e 'NOVO CAMPECHE SPOT II' na fachada são visíveis. Pin de localização 'Novo Campeche SPOT II' fixo na tela.",
+        "lettering": "",
+        "narracao": "O Novo Campeche SPOT II foi projetado para alta performance em short stay. Sua arquitetura moderna otimiza a experiência de investimento."
+      },
+      {
+        "numero": 3,
+        "tempo": "16-23s",
+        "descricao_visual": "Traveling pela rua arborizada em frente ao terreno, mostrando palmeiras, prédios residenciais e vista do mar ao fundo. O empreendimento à direita com vegetação. Pin de localização 'Novo Campeche SPOT II' fixo na tela.",
+        "lettering": "ROI Projetado: 16,4% a.a.",
+        "narracao": "Projetamos um ROI de 16,4% ao ano. Com rendimento mensal estimado de R$ 5.500,00, seu capital terá valorização significativa."
+      },
+      {
+        "numero": 4,
+        "tempo": "24-35s",
+        "descricao_visual": "Câmera revelando o rooftop do SPOT II, com deck de madeira, piscina de borda infinita com LED e área gourmet com bancada. O letreiro 'Novo Campeche II SPOT' em neon é visível, com vista para o bairro e céu azul. Pin de localização 'Novo Campeche SPOT II' fixo na tela.",
+        "lettering": "Saiba Mais",
+        "narracao": "Invista com autoridade. Conheça as cotas disponíveis e posicione-se no mercado de Florianópolis."
+      }
+    ],
+    "instrucoes_edicao": "Manter tom de voz grave, pausado e confiante na narração. Transições suaves entre as cenas. Não escurecer as imagens, manter cores vivas e claras. Não usar molduras, bordas ou borrar laterais. Destacar visual e auditivamente os dados financeiros. O pin de localização 'Novo Campeche SPOT II' deve estar SEMPRE visível em todas as cenas, fixo na tela.",
+    "legenda_feed": "ROI de 16,4% ao ano. Você está posicionado para isso?\n\nO Novo Campeche SPOT II em Florianópolis representa um investimento estratégico. Com gestão profissional Seazone, seu ativo é otimizado para alta performance e renda passiva, em um modelo pensado para short stay desde a origem.\n\nProjetamos um ROI de 16,4% ao ano, com rendimento mensal estimado de R$ 5.500,00. Sua cota tem potencial de valorização estimada de 81%, um diferencial no mercado de alto padrão em uma das localizações mais desejadas do Brasil.\n\n#InvestimentoImobiliario #Florianopolis #NovoCampeche #Seazone #RendaPassiva #ROI #Investimento\n\nDisclaimer: Este material tem caráter exclusivamente informativo e não constitui uma promessa de rentabilidade futura ou garantia de retorno financeiro. Os resultados financeiros do investimento dependem da performance do empreendimento após sua conclusão, especialmente de futura valorização patrimonial do imóvel e da renda gerada por sua eventual locação. A Seazone não oferece garantia de rendimento fixo, retorno mínimo ou qualquer tipo de remuneração automática sobre o capital investido.",
+    "prompt_visual_en": "Cinematic video showcasing a modern real estate investment. Start with a drone shot approaching a vibrant coastal neighborhood in Florianópolis, Brazil, featuring lush tree-lined streets, low-rise residential buildings, green fields, and a turquoise ocean with clear blue skies. Transition smoothly to a dolly-in on the contemporary facade of a 4-story building, highlighting concrete, slatted wood, glass, and tropical vegetation. Next, a traveling shot along an palm-tree-lined street with residential buildings and a distant ocean view. Conclude with a revealing shot of a luxurious rooftop with an infinity pool, wooden deck, gourmet area, and a panoramic view of the neighborhood under a blue sky. Maintain bright, vivid colors throughout, with smooth transitions and no visual overlays or texts. The visual style should be authoritative and premium."
+  },
+  "VA1.1": {
+    "id": "VA1.1",
+    "tipo": "video_apresentadora",
+    "duracao": "30-40s",
+    "titulo": "Novo Campeche SPOT II: Seu Investimento de Alta Performance em Florianópolis",
+    "cenas": [
+      {
+        "numero": 1,
+        "tempo": "0-7s",
+        "descricao_visual": "Foto aérea real de drone do bairro Novo Campeche mostrando ruas arborizadas, prédios baixos residenciais, campo verde e mar turquesa ao fundo com ondas, céu azul claro.",
+        "fala_monica": null,
+        "narracao_off": "Bem-vindo ao Novo Campeche, Florianópolis. Onde o potencial de investimento encontra a beleza natural.",
+        "lettering": "(pin) Novo Campeche, Florianópolis - SC"
+      },
+      {
+        "numero": 2,
+        "tempo": "8-15s",
+        "descricao_visual": "Monica caminhando em passarela de madeira na praia, vestido azul listrado longo, sorrindo, mar e Ilha do Campeche ao fundo, vegetação de restinga, dia ensolarado.",
+        "fala_monica": "Estou no Novo Campeche, um dos bairros de Florianópolis com maior faturamento em locações de curta temporada.",
+        "narracao_off": null,
+        "lettering": ""
+      },
+      {
+        "numero": 3,
+        "tempo": "16-23s",
+        "descricao_visual": "Render 3D da fachada do Novo Campeche SPOT II — prédio moderno de 4 andares com fachada em concreto, madeira ripada e vidro, letreiro 'seazone' no rooftop, 'NOVO CAMPECHE SPOT II' na fachada, vegetação tropical, bicicletas na entrada.",
+        "fala_monica": "A fachada do SPOT II foi pensada para alta performance em locação de curta temporada.",
+        "narracao_off": null,
+        "lettering": ""
+      },
+      {
+        "numero": 4,
+        "tempo": "24-35s",
+        "descricao_visual": "Render 3D do rooftop do SPOT II — deck de madeira, piscina de borda infinita com LED, área gourmet com bancada, letreiro 'Novo Campeche II SPOT' em neon, vista para o bairro, céu azul.",
+        "fala_monica": "Com ROI projetado de 16,4% ao ano, seu rendimento mensal estimado é de R$ 5.500. Este é o Novo Campeche SPOT II. Clique em Saiba Mais.",
+        "narracao_off": null,
+        "lettering": "Saiba Mais"
+      }
+    ],
+    "instrucoes_direcao": "Monica, mantenha um tom de autoridade e credibilidade, como uma investidora. Dicção clara e pausas estratégicas nos dados financeiros. Movimentos suaves e naturais.",
+    "instrucoes_edicao": "Transições suaves entre as cenas. Manter cores vivas e claras, sem escurecer imagens. Não usar molduras, bordas ou borrar laterais. Pin de localização 'Novo Campeche SPOT II' sempre visível.",
+    "legenda_feed": "Seu próximo investimento pode render R$ 5.500,00 por mês. Conheça o Novo Campeche SPOT II.\n\nLocalizado no promissor bairro Novo Campeche, em Florianópolis, o SPOT II oferece um ROI projetado de 16,4% ao ano. Nosso modelo foi desenhado para alta performance em locações de curta temporada, garantindo uma gestão profissional Seazone.\n\nCom um rendimento mensal estimado de R$ 5.500,00, este empreendimento é a escolha estratégica para investidores que buscam renda passiva e valorização. A arquitetura moderna e a localização privilegiada, próxima ao aeroporto, maximizam seu potencial.\n\nInvista em Florianópolis com a solidez e a expertise da Seazone. Um ativo de alta performance esperando por você.\n\n#InvestimentoImobiliario #Florianopolis #NovoCampeche #RendaPassiva #Seazone #ROI #SpotII #ImoveisDeLuxo #InvestidorInteligente\n\nEste material tem caráter exclusivamente informativo e não constitui uma promessa de rentabilidade futura ou garantia de retorno financeiro. Os resultados financeiros do investimento dependem da performance do empreendimento após sua conclusão, especialmente de futura valorização patrimonial do imóvel e da renda gerada por sua eventual locação. A Seazone não oferece garantia de rendimento fixo, retorno mínimo ou qualquer tipo de remuneração automática sobre o capital investido.",
+    "prompt_visual_en": "Create a video featuring: a drone shot of a real coastal neighborhood with low-rise buildings and turquoise sea, a woman in a striped blue dress walking on a wooden beach boardwalk with the sea and an island in the background on a sunny day, a modern 4-story building facade with concrete, slatted wood, and glass elements, and a rooftop deck with an infinity pool and panoramic views of the neighborhood. Include a location pin for 'Novo Campeche SPOT II' visible throughout the video. Maintain bright, clear colors and smooth transitions."
+  }
+};
+const ASSETS_MAP = {
+  "_gerado_em": "2026-03-26T18:48:17.427Z",
+  "_diretorio": "assets/",
+  "branding": [
+    {
+      "arquivo": "logo.png",
+      "caminho": "assets/logo.png"
+    }
+  ],
+  "referencias": [
+    {
+      "arquivo": "Estático- Feed.jpg",
+      "caminho": "assets/Estático- Feed.jpg"
+    },
+    {
+      "arquivo": "Estáticos - Reels.jpg",
+      "caminho": "assets/Estáticos - Reels.jpg"
+    },
+    {
+      "arquivo": "Estáticos - Story.jpg",
+      "caminho": "assets/Estáticos - Story.jpg"
+    }
+  ],
+  "empreendimento": [
+    {
+      "arquivo": "caminho até a praia.png",
+      "caminho": "assets/caminho até a praia.png"
+    },
+    {
+      "arquivo": "fachada.png",
+      "caminho": "assets/fachada.png"
+    },
+    {
+      "arquivo": "rooftop 2.png",
+      "caminho": "assets/rooftop 2.png"
+    },
+    {
+      "arquivo": "rooftop.png",
+      "caminho": "assets/rooftop.png"
+    },
+    {
+      "arquivo": "vista aerea 2.png",
+      "caminho": "assets/vista aerea 2.png"
+    },
+    {
+      "arquivo": "vista aerea.jpeg",
+      "caminho": "assets/vista aerea.jpeg"
+    },
+    {
+      "arquivo": "vista aerea.png",
+      "caminho": "assets/vista aerea.png"
+    }
+  ],
+  "apresentadora": [
+    {
+      "arquivo": "Mônica 2.jpeg",
+      "caminho": "assets/Mônica 2.jpeg"
+    },
+    {
+      "arquivo": "Mônica costas.jpeg",
+      "caminho": "assets/Mônica costas.jpeg"
+    },
+    {
+      "arquivo": "Mônica.MOV",
+      "caminho": "assets/Mônica.MOV"
+    },
+    {
+      "arquivo": "Mônica.jpeg",
+      "caminho": "assets/Mônica.jpeg"
+    },
+    {
+      "arquivo": "monica-foto2.jpg",
+      "caminho": "assets/monica-foto2.jpg"
+    }
+  ],
+  "videos_referencia": [
+    {
+      "arquivo": "FEED-Narrados_Novo Campeche II 1.1.mp4",
+      "caminho": "assets/FEED-Narrados_Novo Campeche II 1.1.mp4"
+    },
+    {
+      "arquivo": "Reels-Novo Campeche II-Apresentadora-Estrutura 1.1.mp4",
+      "caminho": "assets/Reels-Novo Campeche II-Apresentadora-Estrutura 1.1.mp4"
+    }
+  ],
+  "branding_raiz": [
+    {
+      "arquivo": "logo seazone.png",
+      "caminho": "logo seazone.png"
+    },
+    {
+      "arquivo": "Casinha-3.png",
+      "caminho": "Casinha-3.png"
+    }
+  ]
+};
+const PROMPTS_DATA = {
+  "estaticos": {
+    "_gerado_em": "2026-03-26T18:48:57.858Z",
+    "_instrucoes": "Use estes prompts em ferramentas de geracao de imagem (fal.ai Flux Pro, Midjourney, DALL-E). Os assets de referencia podem ser usados como image_url para img2img.",
+    "formatos": {
+      "feed_1x1": {
+        "aspecto": "1:1",
+        "resolucao": "1024x1024",
+        "prompt_en": "Aerial drone shot of Novo Campeche, Florianópolis. The scene captures a real coastal neighborhood with low-rise white buildings, a vibrant green grassy field, a clear turquoise sea with gentle waves in the background, and well-maintained tree-lined streets under a bright, clean blue sky. Cinematic quality, vibrant colors. Focus on the actual terrain of SPOT II.",
+        "prompt_composicao": "pin de localização no topo esquerdo, badge LANÇAMENTO no centro esquerdo, headline e bloco financeiro coral na metade inferior, logo Seazone canto superior direito, disclaimer no rodapé",
+        "overlay_elements": {
+          "pin_localizacao": "Novo Campeche SPOT II",
+          "badge": "LANÇAMENTO",
+          "headline": "Retorno projetado de 16,4% ao ano.",
+          "subheadline": "Rendimento mensal estimado de R$ 5.500,00.",
+          "destaque_financeiro": "16,4% ao ano de retorno líquido com aluguel por temporada",
+          "cta": "Saiba Mais",
+          "logo": "assets/logo.png",
+          "disclaimer": true
+        },
+        "assets_referencia": [
+          "assets/Estático- Feed.jpg"
+        ],
+        "assets_base": [
+          "assets/fachada.png",
+          "assets/vista aerea 2.png",
+          "assets/vista aerea.jpeg",
+          "assets/vista aerea.png"
+        ]
+      },
+      "reels_9x16": {
+        "aspecto": "9:16",
+        "resolucao": "576x1024",
+        "prompt_en": "Aerial drone shot of Novo Campeche, Florianópolis. The scene captures a real coastal neighborhood with low-rise white buildings, a vibrant green grassy field, a clear turquoise sea with gentle waves in the background, and well-maintained tree-lined streets under a bright, clean blue sky. Cinematic quality, vibrant colors. Focus on the actual terrain of SPOT II.",
+        "prompt_composicao": "pin de localização no topo esquerdo, badge LANÇAMENTO no centro esquerdo, headline e bloco financeiro coral na metade inferior, logo Seazone canto superior direito, disclaimer no rodapé",
+        "overlay_elements": {
+          "pin_localizacao": "Novo Campeche SPOT II",
+          "badge": "LANÇAMENTO",
+          "headline": "Retorno projetado de 16,4% ao ano.",
+          "subheadline": "Rendimento mensal estimado de R$ 5.500,00.",
+          "destaque_financeiro": "16,4% ao ano de retorno líquido com aluguel por temporada",
+          "cta": "Saiba Mais",
+          "logo": "assets/logo.png",
+          "disclaimer": true
+        },
+        "assets_referencia": [
+          "assets/Estáticos - Reels.jpg"
+        ],
+        "assets_base": [
+          "assets/fachada.png",
+          "assets/vista aerea 2.png",
+          "assets/vista aerea.jpeg",
+          "assets/vista aerea.png"
+        ]
+      },
+      "story_9x16": {
+        "aspecto": "9:16",
+        "resolucao": "576x1024",
+        "prompt_en": "Aerial drone shot of Novo Campeche, Florianópolis. The scene captures a real coastal neighborhood with low-rise white buildings, a vibrant green grassy field, a clear turquoise sea with gentle waves in the background, and well-maintained tree-lined streets under a bright, clean blue sky. Cinematic quality, vibrant colors. Focus on the actual terrain of SPOT II.",
+        "prompt_composicao": "pin de localização no topo esquerdo, badge LANÇAMENTO no centro esquerdo, headline e bloco financeiro coral na metade inferior, logo Seazone canto superior direito, disclaimer no rodapé",
+        "overlay_elements": {
+          "pin_localizacao": "Novo Campeche SPOT II",
+          "badge": "LANÇAMENTO",
+          "headline": "Retorno projetado de 16,4% ao ano.",
+          "subheadline": "Rendimento mensal estimado de R$ 5.500,00.",
+          "destaque_financeiro": "16,4% ao ano de retorno líquido com aluguel por temporada",
+          "cta": "Saiba Mais",
+          "logo": "assets/logo.png",
+          "disclaimer": true
+        },
+        "assets_referencia": [
+          "assets/Estáticos - Story.jpg"
+        ],
+        "assets_base": [
+          "assets/fachada.png",
+          "assets/rooftop 2.png",
+          "assets/rooftop.png"
+        ]
+      }
+    }
+  },
+  "video-narrado": {
+    "_gerado_em": "2026-03-26T18:48:57.862Z",
+    "_instrucoes": "Use estes prompts para gerar clipes de video (fal.ai Kling, Minimax, Luma). Cada cena deve gerar um clipe separado que sera editado na timeline.",
+    "prompt_geral_en": "Cinematic video showcasing a modern real estate investment. Start with a drone shot approaching a vibrant coastal neighborhood in Florianópolis, Brazil, featuring lush tree-lined streets, low-rise residential buildings, green fields, and a turquoise ocean with clear blue skies. Transition smoothly to a dolly-in on the contemporary facade of a 4-story building, highlighting concrete, slatted wood, glass, and tropical vegetation. Next, a traveling shot along an palm-tree-lined street with residential buildings and a distant ocean view. Conclude with a revealing shot of a luxurious rooftop with an infinity pool, wooden deck, gourmet area, and a panoramic view of the neighborhood under a blue sky. Maintain bright, vivid colors throughout, with smooth transitions and no visual overlays or texts. The visual style should be authoritative and premium.",
+    "formatos": [
+      "feed_1x1",
+      "reels_9x16"
+    ],
+    "cenas": [
+      {
+        "numero": 1,
+        "tempo": "0-7s",
+        "prompt_en": "Cinematic aerial drone shot approaching Drone se aproximando de bairro litorâneo real com ruas arborizadas, prédios baixos residenciais, campo verde e mar turquesa ao fundo com ondas, céu azul claro. Pin de localização 'Novo Campeche SPOT II' fixo na tela.. Golden hour, warm tones, 4K quality. No text overlays.",
+        "narracao": "Em Florianópolis, o Novo Campeche atrai investimentos estratégicos. Este bairro valorizado oferece oportunidades únicas.",
+        "lettering": "(pin) Novo Campeche, Florianópolis - SC",
+        "assets_sugeridos": [
+          "assets/vista aerea 2.png",
+          "assets/vista aerea.jpeg",
+          "assets/vista aerea.png"
+        ]
+      },
+      {
+        "numero": 2,
+        "tempo": "8-15s",
+        "prompt_en": "Smooth dolly-in shot of Dolly-in na fachada moderna do Novo Campeche SPOT II, com concreto, madeira ripada, vidro e vegetação tropical. O letreiro 'seazone' no rooftop e 'NOVO CAMPECHE SPOT II' na fachada são visíveis. Pin de localização 'Novo Campeche SPOT II' fixo na tela.. Modern architecture detail, clean lines. Premium real estate style. No text overlays.",
+        "narracao": "O Novo Campeche SPOT II foi projetado para alta performance em short stay. Sua arquitetura moderna otimiza a experiência de investimento.",
+        "lettering": null,
+        "assets_sugeridos": [
+          "assets/fachada.png",
+          "assets/rooftop 2.png",
+          "assets/rooftop.png"
+        ]
+      },
+      {
+        "numero": 3,
+        "tempo": "16-23s",
+        "prompt_en": "Dynamic lifestyle montage: Traveling pela rua arborizada em frente ao terreno, mostrando palmeiras, prédios residenciais e vista do mar ao fundo. O empreendimento à direita com vegetação. Pin de localização 'Novo Campeche SPOT II' fixo na tela.. Vibrant colors, warm lighting, professional quality. No text overlays.",
+        "narracao": "Projetamos um ROI de 16,4% ao ano. Com rendimento mensal estimado de R$ 5.500,00, seu capital terá valorização significativa.",
+        "lettering": "ROI Projetado: 16,4% a.a.",
+        "assets_sugeridos": [
+          "assets/vista aerea 2.png",
+          "assets/vista aerea.jpeg",
+          "assets/vista aerea.png",
+          "assets/fachada.png"
+        ]
+      },
+      {
+        "numero": 4,
+        "tempo": "24-35s",
+        "prompt_en": "Breathtaking panoramic view: Câmera revelando o rooftop do SPOT II, com deck de madeira, piscina de borda infinita com LED e área gourmet com bancada. O letreiro 'Novo Campeche II SPOT' em neon é visível, com vista para o bairro e céu azul. Pin de localização 'Novo Campeche SPOT II' fixo na tela.. Dramatic sunset, cinematic wide angle, aspirational mood. No text overlays.",
+        "narracao": "Invista com autoridade. Conheça as cotas disponíveis e posicione-se no mercado de Florianópolis.",
+        "lettering": "Saiba Mais",
+        "assets_sugeridos": [
+          "assets/vista aerea 2.png",
+          "assets/vista aerea.jpeg",
+          "assets/vista aerea.png",
+          "assets/rooftop 2.png",
+          "assets/rooftop.png"
+        ]
+      }
+    ],
+    "instrucoes_edicao": "Manter tom de voz grave, pausado e confiante na narração. Transições suaves entre as cenas. Não escurecer as imagens, manter cores vivas e claras. Não usar molduras, bordas ou borrar laterais. Destacar visual e auditivamente os dados financeiros. O pin de localização 'Novo Campeche SPOT II' deve estar SEMPRE visível em todas as cenas, fixo na tela.",
+    "trilha": "Instrumental premium, minimalista, sem vocais. Tom inspirador e confiante.",
+    "assets_video_referencia": [
+      "assets/FEED-Narrados_Novo Campeche II 1.1.mp4"
+    ]
+  },
+  "video-apresentadora": {
+    "_gerado_em": "2026-03-26T18:48:57.865Z",
+    "_instrucoes": "Video com apresentadora Monica. Cenas com fala_monica usam gravacao real. Cenas com narracao_off usam b-roll gerado ou assets existentes.",
+    "prompt_geral_en": "Create a video featuring: a drone shot of a real coastal neighborhood with low-rise buildings and turquoise sea, a woman in a striped blue dress walking on a wooden beach boardwalk with the sea and an island in the background on a sunny day, a modern 4-story building facade with concrete, slatted wood, and glass elements, and a rooftop deck with an infinity pool and panoramic views of the neighborhood. Include a location pin for 'Novo Campeche SPOT II' visible throughout the video. Maintain bright, clear colors and smooth transitions.",
+    "formatos": [
+      "feed_1x1",
+      "reels_9x16"
+    ],
+    "cenas": [
+      {
+        "numero": 1,
+        "tempo": "0-7s",
+        "tipo_cena": "broll_gerado",
+        "prompt_en": "Cinematic aerial drone shot approaching Foto aérea real de drone do bairro Novo Campeche mostrando ruas arborizadas, prédios baixos residenciais, campo verde e mar turquesa ao fundo com ondas, céu azul claro.. Golden hour, warm tones, 4K quality. No text overlays.",
+        "fala_monica": null,
+        "narracao_off": "Bem-vindo ao Novo Campeche, Florianópolis. Onde o potencial de investimento encontra a beleza natural.",
+        "lettering": "(pin) Novo Campeche, Florianópolis - SC",
+        "assets_sugeridos": [
+          "assets/vista aerea 2.png",
+          "assets/vista aerea.jpeg",
+          "assets/vista aerea.png"
+        ]
+      },
+      {
+        "numero": 2,
+        "tempo": "8-15s",
+        "tipo_cena": "gravacao_apresentadora",
+        "prompt_en": "Professional woman presenter at Monica caminhando em passarela de madeira na praia, vestido azul listrado longo, sorrindo, mar e Ilha do Campeche ao fundo, vegetação de restinga, dia ensolarado.. Confident posture, direct eye contact with camera. Cinematic 4K, warm golden hour lighting. No text overlays.",
+        "fala_monica": "Estou no Novo Campeche, um dos bairros de Florianópolis com maior faturamento em locações de curta temporada.",
+        "narracao_off": null,
+        "lettering": null,
+        "assets_sugeridos": [
+          "assets/caminho até a praia.png",
+          "assets/Mônica 2.jpeg",
+          "assets/Mônica costas.jpeg",
+          "assets/Mônica.MOV",
+          "assets/Mônica.jpeg",
+          "assets/monica-foto2.jpg"
+        ]
+      },
+      {
+        "numero": 3,
+        "tempo": "16-23s",
+        "tipo_cena": "gravacao_apresentadora",
+        "prompt_en": "Professional woman presenter at Render 3D da fachada do Novo Campeche SPOT II , prédio moderno de 4 andares com fachada em concreto, madeira ripada e vidro, letreiro 'seazone' no rooftop, 'NOVO CAMPECHE SPOT II' na fachada, vegetação tropical, bicicletas na entrada.. Confident posture, direct eye contact with camera. Cinematic 4K, warm golden hour lighting. No text overlays.",
+        "fala_monica": "A fachada do SPOT II foi pensada para alta performance em locação de curta temporada.",
+        "narracao_off": null,
+        "lettering": null,
+        "assets_sugeridos": [
+          "assets/fachada.png",
+          "assets/rooftop 2.png",
+          "assets/rooftop.png"
+        ]
+      },
+      {
+        "numero": 4,
+        "tempo": "24-35s",
+        "tipo_cena": "gravacao_apresentadora",
+        "prompt_en": "Professional woman presenter at Render 3D do rooftop do SPOT II , deck de madeira, piscina de borda infinita com LED, área gourmet com bancada, letreiro 'Novo Campeche II SPOT' em neon, vista para o bairro, céu azul.. Confident posture, direct eye contact with camera. Cinematic 4K, warm golden hour lighting. No text overlays.",
+        "fala_monica": "Com ROI projetado de 16,4% ao ano, seu rendimento mensal estimado é de R$ 5.500. Este é o Novo Campeche SPOT II. Clique em Saiba Mais.",
+        "narracao_off": null,
+        "lettering": "Saiba Mais",
+        "assets_sugeridos": [
+          "assets/vista aerea 2.png",
+          "assets/vista aerea.jpeg",
+          "assets/vista aerea.png",
+          "assets/rooftop 2.png",
+          "assets/rooftop.png"
+        ]
+      }
+    ],
+    "instrucoes_direcao": "Monica, mantenha um tom de autoridade e credibilidade, como uma investidora. Dicção clara e pausas estratégicas nos dados financeiros. Movimentos suaves e naturais.",
+    "instrucoes_edicao": "Transições suaves entre as cenas. Manter cores vivas e claras, sem escurecer imagens. Não usar molduras, bordas ou borrar laterais. Pin de localização 'Novo Campeche SPOT II' sempre visível.",
+    "trilha": "Moderna e sofisticada, transmite confianca e sucesso. Sem vocais.",
+    "assets_apresentadora": [
+      "assets/Mônica 2.jpeg",
+      "assets/Mônica costas.jpeg",
+      "assets/Mônica.MOV",
+      "assets/Mônica.jpeg",
+      "assets/monica-foto2.jpg"
+    ],
+    "assets_video_referencia": [
+      "assets/Reels-Novo Campeche II-Apresentadora-Estrutura 1.1.mp4"
+    ]
+  }
+};
+
+const JOBS = [
+  { id: 'E1.1', tipo: 'Estatico', formatos: ['feed_1x1', 'reels_9x16', 'story_9x16'], ext: 'png', mediaType: 'image', gridClass: 'formats-3' },
+  { id: 'VN1.1', tipo: 'Video Narrado', formatos: ['feed_1x1', 'reels_9x16'], ext: 'mp4', mediaType: 'video', gridClass: 'formats-2' },
+  { id: 'VA1.1', tipo: 'Video Apresentadora', formatos: ['feed_1x1', 'reels_9x16'], ext: 'mp4', mediaType: 'video', gridClass: 'formats-2' },
+];
+
+const FORMAT_LABELS = { feed_1x1: 'Feed 1:1', reels_9x16: 'Reels 9:16', story_9x16: 'Story 9:16' };
+
+// ── Tabs ─────────────────────────────────────────────────────────────────────
+
+document.getElementById('tabs').addEventListener('click', e => {
+  const tab = e.target.closest('.tab');
+  if (!tab) return;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+});
+
+// ── Render helpers ───────────────────────────────────────────────────────────
+
+function renderAsset(job, formato) {
+  // For static images, prefer _final version (with text overlay)
+  if (job.mediaType === 'image') {
+    const finalPath = job.id + '/' + formato + '_final.' + job.ext;
+    const fallbackPath = job.id + '/' + formato + '.' + job.ext;
+    return '<img src="' + finalPath + '" alt="' + job.id + ' ' + formato + '" onerror="this.src=\'' + fallbackPath + '\';this.onerror=function(){this.parentElement.innerHTML=\'<div class=placeholder><div class=icon>&#x1f5bc;</div>Asset pendente<small>' + fallbackPath + '</small></div>\'}">';
+  }
+  const assetPath = job.id + '/' + formato + '.' + job.ext;
+  return '<video src="' + assetPath + '" controls preload="metadata" playsinline onerror="this.parentElement.innerHTML=\'<div class=placeholder><div class=icon>&#x1f3ac;</div>Asset pendente<small>' + assetPath + '</small></div>\'">';
+}
+
+function renderCardCopy(job, copy) {
+  if (!copy) return '';
+  if (job.id === 'E1.1') return '<div class="card-copy"><div class="card-headline">' + esc(copy.headline) + '</div><div class="card-subheadline">' + esc(copy.subheadline) + '</div><span class="cta-btn">' + esc(copy.cta || 'Saiba Mais') + '</span></div>';
+  return '<div class="card-copy"><div class="card-titulo">' + esc(copy.titulo) + '</div><div class="card-subheadline">' + esc(copy.duracao) + '</div></div>';
+}
+
+function renderDestaqueFinanceiro(copy) {
+  if (!copy || !copy.destaque_financeiro) return '';
+  const match = copy.destaque_financeiro.match(/([\d,]+%)/);
+  const roi = match ? match[1] : '';
+  const rest = copy.destaque_financeiro.replace(roi, '').trim();
+  return '<div class="destaque-financeiro"><div class="roi">' + esc(roi) + '</div><div class="roi-label">' + esc(rest) + '</div></div>';
+}
+
+function renderLegenda(legenda, uid) {
+  if (!legenda) return '';
+  return '<div class="copy-field"><label>Legenda Feed</label><div class="legenda-wrapper"><div class="legenda-box" id="legenda-' + uid + '">' + esc(legenda) + '</div><button class="copy-btn" onclick="copyToClipboard(this, document.getElementById(\'legenda-' + uid + '\').textContent)">Copiar</button></div></div>';
+}
+
+function renderCenas(cenas, duracao) {
+  if (!cenas || !cenas.length) return '';
+  let html = '<div class="copy-field"><label>Roteiro — ' + cenas.length + ' cenas (' + esc(duracao) + ')</label><div class="cenas-grid">';
+  for (const c of cenas) {
+    html += '<div class="cena"><div class="cena-header"><span class="cena-num">CENA ' + c.numero + '</span><span class="cena-tempo">' + esc(c.tempo) + '</span></div><div class="cena-text">';
+    html += '<em>Visual:</em> ' + esc(c.descricao_visual) + '<br>';
+    if (c.lettering) html += '<em>Lettering:</em> ' + esc(c.lettering) + '<br>';
+    if (c.narracao) html += '<em>Narracao:</em> ' + esc(c.narracao) + '<br>';
+    if (c.fala_monica) html += '<em>Fala Monica:</em> ' + esc(c.fala_monica) + '<br>';
+    if (c.narracao_off) html += '<em>Narracao Off:</em> ' + esc(c.narracao_off) + '<br>';
+    html += '</div>';
+    if (c.assets_sugeridos && c.assets_sugeridos.length) {
+      html += '<div class="cena-assets">';
+      for (const a of c.assets_sugeridos) html += '<span class="cena-asset-tag">' + esc(a.split('/').pop()) + '</span>';
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+  html += '</div></div>';
+  return html;
+}
+
+function renderDetailsEstatico(copy, uid) {
+  if (!copy) return '<div style="color:var(--coral);font-size:.85rem;">Copy nao encontrado — rode npm run copy</div>';
+  let h = '';
+  h += '<div class="copy-field"><label>Headline</label><div class="value">' + esc(copy.headline) + '</div></div>';
+  h += '<div class="copy-field"><label>Subheadline</label><div class="value">' + esc(copy.subheadline) + '</div></div>';
+  h += '<div class="copy-field"><label>Destaque Financeiro</label><div class="value">' + esc(copy.destaque_financeiro) + '</div></div>';
+  h += '<div class="copy-field"><label>CTA</label><div class="value">' + esc(copy.cta) + '</div></div>';
+  h += renderLegenda(copy.legenda_feed, uid);
+  h += '<div class="copy-field"><label>Notas de Composicao</label><div class="value">' + esc(copy.notas_composicao) + '</div></div>';
+  h += '<div class="copy-field"><label>Prompt Visual (EN)</label><div class="prompt-visual">' + esc(copy.prompt_visual_en) + '</div></div>';
+  return h;
+}
+
+function renderDetailsVideo(copy, uid) {
+  if (!copy) return '<div style="color:var(--coral);font-size:.85rem;">Copy nao encontrado — rode npm run copy</div>';
+  let h = '';
+  h += '<div class="copy-field"><label>Titulo</label><div class="value">' + esc(copy.titulo) + '</div></div>';
+  h += renderCenas(copy.cenas, copy.duracao);
+  if (copy.instrucoes_direcao) h += '<div class="copy-field"><label>Instrucoes de Direcao</label><div class="value">' + esc(copy.instrucoes_direcao) + '</div></div>';
+  h += '<div class="copy-field"><label>Instrucoes de Edicao</label><div class="value">' + esc(copy.instrucoes_edicao) + '</div></div>';
+  h += renderLegenda(copy.legenda_feed, uid);
+  h += '<div class="copy-field"><label>Prompt Visual (EN)</label><div class="prompt-visual">' + esc(copy.prompt_visual_en) + '</div></div>';
+  return h;
+}
+
+// ── Storyboard frames ─────────────────────────────────────────────────────────
+
+const STORYBOARD = {
+  'VN1.1': { cenas: 4, formatos: ['feed_1x1', 'reels_9x16'] },
+  'VA1.1': { cenas: 4, formatos: ['feed_1x1', 'reels_9x16'] },
+};
+
+function renderStoryboard(jobId) {
+  const sb = STORYBOARD[jobId];
+  if (!sb) return '';
+  let html = '';
+
+  // Storyboard frames (static)
+  html += '<div class="storyboard" style="margin-top:1rem;"><div class="storyboard-title" style="opacity:.5;">Storyboard Frames (Gemini Image)</div>';
+  for (const fmt of sb.formatos) {
+    html += '<div style="margin-bottom:.6rem;font-size:.7rem;color:var(--muted);font-weight:600;opacity:.5;">' + (FORMAT_LABELS[fmt] || fmt) + '</div><div class="storyboard-grid">';
+    for (let c = 1; c <= sb.cenas; c++) {
+      const src = jobId + '/cena_' + c + '_' + fmt + '.png';
+      html += '<div class="storyboard-frame" style="opacity:.6;"><img src="' + src + '" alt="Cena ' + c + '" onerror="this.parentElement.innerHTML=\'<div class=placeholder style=min-height:80px><small>pendente</small></div>\'"><div class="frame-label"><span>Cena ' + c + '</span></div></div>';
+    }
+    html += '</div>';
+  }
+  html += '</div>';
+
+  return html;
+}
+
+// ── Render video final (narrado + trilha) ────────────────────────────────────
+
+const VIDEO_FINAL_FORMATOS = ['feed_1x1', 'reels_9x16'];
+
+function renderVideoFinal(jobId) {
+  if (jobId === 'E1.1') return '';
+
+  let html = '<div class="video-final">';
+  html += '<div class="video-final-title">Video Final (Narrado + Trilha) <span class="trilha-tag">Lyria2</span></div>';
+  html += '<div class="video-final-grid">';
+
+  for (const fmt of VIDEO_FINAL_FORMATOS) {
+    const src = jobId + '/' + fmt + '_narrado_final.mp4';
+    const label = FORMAT_LABELS[fmt] || fmt;
+    html += '<div class="video-final-card">';
+    html += '<video src="' + src + '" controls preload="metadata" playsinline onerror="this.parentElement.innerHTML=\'<div class=placeholder style=min-height:120px><div class=icon>&#x1f3b5;</div>Pendente<small>' + src + '</small></div>\'">';
+    html += '<div class="vf-label"><span class="vf-fmt">' + label + '</span>' + dlBtnHTML(src) + '</div>';
+    html += '</div>';
+  }
+
+  html += '</div></div>';
+  return html;
+}
+
+// ── Render criativos ─────────────────────────────────────────────────────────
+
+function renderCreativos() {
+  const app = document.getElementById('tab-criativos');
+  const statusBar = document.getElementById('statusBar');
+  let html = '';
+  const statuses = [];
+
+  for (const job of JOBS) {
+    const copy = COPY_DATA[job.id] || null;
+    const hasCopy = !!copy;
+    const status = hasCopy ? 'ok' : 'err';
+    const label = hasCopy ? job.id + ': copy OK' : job.id + ': sem copy';
+    statuses.push({ id: job.id, status, label });
+
+    const cardsHTML = job.formatos.map(fmt => {
+      const assetSrc = job.mediaType === 'image'
+        ? job.id + '/' + fmt + '_final.' + job.ext
+        : job.id + '/' + fmt + '.' + job.ext;
+      return '<div class="format-card"><div class="format-label">' + (FORMAT_LABELS[fmt] || fmt) + '</div><div class="asset-container">' + renderAsset(job, fmt) + '</div>' + renderCardCopy(job, copy) + '<div style="padding:0 1rem .8rem;">' + dlBtnHTML(assetSrc) + '</div></div>';
+    }).join('');
+
+    const destaqueHTML = job.id === 'E1.1' ? renderDestaqueFinanceiro(copy) : '';
+    const uid = job.id.replace('.', '_');
+    const detailsHTML = job.id === 'E1.1' ? renderDetailsEstatico(copy, uid) : renderDetailsVideo(copy, uid);
+
+    const storyHTML = renderStoryboard(job.id);
+    const videoFinalHTML = renderVideoFinal(job.id);
+    html += '<div class="section"><div class="section-header"><span class="section-badge">' + esc(job.id) + '</span><span class="section-title">' + esc(job.tipo) + '</span><span class="section-meta">' + job.formatos.length + ' formatos &middot; ' + job.ext.toUpperCase() + '</span></div>' + destaqueHTML + '<div class="formats-grid ' + job.gridClass + '">' + cardsHTML + '</div>' + videoFinalHTML + storyHTML + '<div class="copy-details"><div class="copy-details-header" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display===\'none\'?\'block\':\'none\'">Copy &amp; Roteiro</div><div class="copy-details-body">' + detailsHTML + '</div></div></div>';
+  }
+
+  app.innerHTML = html;
+  statusBar.innerHTML = statuses.map(s =>
+    '<div class="status-item"><div class="dot ' + s.status + '"></div>' + esc(s.label) + '</div>'
+  ).join('');
+}
+
+// ── Render assets ────────────────────────────────────────────────────────────
+
+function renderAssets() {
+  const app = document.getElementById('tab-assets');
+  if (!ASSETS_MAP || !ASSETS_MAP.branding) {
+    app.innerHTML = '<p style="color:var(--muted)">Assets map nao encontrado — rode npm run audit</p>';
+    return;
+  }
+
+  let html = '';
+  const cats = ['branding', 'referencias', 'empreendimento', 'apresentadora', 'videos_referencia'];
+  for (const cat of cats) {
+    const items = ASSETS_MAP[cat] || [];
+    if (!items.length) continue;
+    html += '<div class="section"><div class="section-header"><span class="section-badge">' + cat.toUpperCase() + '</span><span class="section-title">' + items.length + ' arquivos</span></div><div class="assets-gallery">';
+    for (const item of items) {
+      const ext = item.arquivo.split('.').pop().toLowerCase();
+      const isImg = ['jpg', 'jpeg', 'png', 'webp', 'gif'].includes(ext);
+      const isVid = ['mp4', 'mov', 'avi', 'webm'].includes(ext);
+      html += '<div class="asset-thumb">';
+      if (isImg) html += '<img src="' + item.caminho + '" onerror="this.onerror=null;this.src=\'../' + item.caminho + '\';this.onerror=function(){this.style.display=\'none\'}">';
+      else if (isVid) html += '<div style="height:100px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.4);font-size:2rem;opacity:.3;">&#x1f3ac;</div>';
+      else html += '<div style="height:100px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.4);font-size:2rem;opacity:.3;">&#x1f4c4;</div>';
+      html += '<div class="name">' + esc(item.arquivo) + '</div></div>';
+    }
+    html += '</div></div>';
+  }
+  app.innerHTML = html;
+}
+
+// ── Render prompts ───────────────────────────────────────────────────────────
+
+function renderPrompts() {
+  const app = document.getElementById('tab-prompts');
+  if (!PROMPTS_DATA || Object.keys(PROMPTS_DATA).length === 0) {
+    app.innerHTML = '<p style="color:var(--muted)">Prompts nao encontrados — rode npm run prompts</p>';
+    return;
+  }
+
+  let html = '';
+  for (const [key, data] of Object.entries(PROMPTS_DATA)) {
+    html += '<div class="section"><div class="section-header"><span class="section-badge">' + esc(key.toUpperCase()) + '</span><span class="section-title">Prompts de Geracao</span></div>';
+    html += '<div class="copy-details"><div class="copy-details-header" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display===\'none\'?\'block\':\'none\'">JSON Completo</div><div class="copy-details-body"><pre style="font-size:.7rem;color:rgba(255,255,255,0.6);white-space:pre-wrap;word-break:break-word;max-height:400px;overflow-y:auto;">' + esc(JSON.stringify(data, null, 2)) + '</pre></div></div></div>';
+  }
+  app.innerHTML = html;
+}
+
+renderCreativos();
+renderAssets();
+renderPrompts();
+
+// ── Formulário Gerar ─────────────────────────────────────────────────────────
+let dadosExtraidos = null;
+
+function getServer() {
+  return (document.getElementById('serverUrl').value || 'http://localhost:3000').replace(/\/+$/, '');
+}
+
+async function extrairDados() {
+  const url = document.getElementById('lovableUrl').value.trim();
+  if (!url) return alert('Cole o link do Lovable');
+
+  const box = document.getElementById('extractBox');
+  const content = document.getElementById('extractContent');
+  const btn = document.getElementById('btnExtrair');
+
+  btn.disabled = true;
+  btn.textContent = 'Extraindo...';
+  content.innerHTML = '<div style="color:var(--muted);font-size:.8rem;">Acessando p\u00e1gina...</div>';
+  box.classList.add('show');
+
+  try {
+    const res = await fetch(getServer() + '/api/extrair', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Erro');
+
+    dadosExtraidos = data;
+    const campos = [
+      ['T\u00edtulo', data.titulo],
+      ['Descri\u00e7\u00e3o', data.descricao],
+      ['ROI', data.roi],
+      ['Rendimento mensal', data.rendimento_mensal],
+      ['Ticket / Cota', data.ticket],
+      ['Valoriza\u00e7\u00e3o', data.valorizacao],
+      ['Imagem OG', data.imagem_og ? '<img src="' + esc(data.imagem_og) + '" style="max-width:180px;border-radius:6px;margin-top:.3rem;">' : null],
+      ['HTML', (data.html_tamanho / 1024).toFixed(0) + 'KB'],
+    ];
+    content.innerHTML = campos.map(function(c) {
+      return '<div class="extract-row"><span class="extract-label">' + c[0] + '</span><span class="extract-val ' + (c[1] ? 'found' : 'miss') + '">' + (c[1] || 'n\u00e3o encontrado') + '</span></div>';
+    }).join('');
+  } catch (e) {
+    content.innerHTML = '<div style="color:var(--coral);font-size:.85rem;">Erro: ' + esc(e.message) + '</div><div style="color:var(--muted);font-size:.75rem;margin-top:.5rem;">Verifique se o servidor est\u00e1 rodando: <code>npm run server</code></div>';
+  }
+  btn.disabled = false;
+  btn.textContent = 'Extrair Dados';
+}
+
+async function gerarCriativos() {
+  const url = document.getElementById('lovableUrl').value.trim();
+  const briefing = document.getElementById('briefingSelect').value;
+  const btn = document.getElementById('btnGerar');
+
+  if (!url) return alert('Cole o link do Lovable');
+
+  const logBox = document.getElementById('genLog');
+  const logBody = document.getElementById('genLogBody');
+  const result = document.getElementById('genResult');
+
+  btn.disabled = true;
+  btn.textContent = 'Gerando...';
+  logBox.classList.add('show');
+  logBody.innerHTML = '<span class="ok">Iniciando gera\u00e7\u00e3o...</span>\n';
+  result.innerHTML = '';
+
+  try {
+    const res = await fetch(getServer() + '/api/gerar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: url, briefing: briefing, dadosExtraidos: dadosExtraidos }),
+    });
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+
+    while (true) {
+      var chunk = await reader.read();
+      if (chunk.done) break;
+      var text = decoder.decode(chunk.value);
+      var lines = text.split('\n').filter(Boolean);
+      for (var i = 0; i < lines.length; i++) {
+        try {
+          var msg = JSON.parse(lines[i]);
+          if (msg.type === 'log') {
+            var cls = msg.nivel === 'ok' ? 'ok' : msg.nivel === 'erro' ? 'erro' : msg.nivel === 'warn' ? 'warn' : '';
+            logBody.innerHTML += '<span class="' + cls + '">' + esc(msg.msg) + '</span>\n';
+            logBox.scrollTop = logBox.scrollHeight;
+          } else if (msg.type === 'done') {
+            logBody.innerHTML += '\n<span class="ok">=== CONCLU\u00cdDO === ' + msg.total + ' assets gerados</span>\n';
+            result.innerHTML = '<a class="gen-result-link" href="#" onclick="document.querySelector(\'[data-tab=criativos]\').click();return false;">Ver Criativos \u2192</a>';
+          } else if (msg.type === 'error') {
+            logBody.innerHTML += '<span class="erro">ERRO: ' + esc(msg.msg) + '</span>\n';
+          }
+        } catch (parseErr) {}
+      }
+    }
+  } catch (e) {
+    logBody.innerHTML += '<span class="erro">Erro de conex\u00e3o: ' + esc(e.message) + '</span>\n<span class="warn">Verifique se o servidor est\u00e1 rodando: npm run server</span>\n';
+  }
+  btn.disabled = false;
+  btn.textContent = 'Gerar Criativos';
+}
+</script>
+</body>
+</html>

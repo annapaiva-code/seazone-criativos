@@ -1,0 +1,85 @@
+{
+  "_gerado_em": "2026-03-26T18:48:57.865Z",
+  "_instrucoes": "Video com apresentadora Monica. Cenas com fala_monica usam gravacao real. Cenas com narracao_off usam b-roll gerado ou assets existentes.",
+  "prompt_geral_en": "Create a video featuring: a drone shot of a real coastal neighborhood with low-rise buildings and turquoise sea, a woman in a striped blue dress walking on a wooden beach boardwalk with the sea and an island in the background on a sunny day, a modern 4-story building facade with concrete, slatted wood, and glass elements, and a rooftop deck with an infinity pool and panoramic views of the neighborhood. Include a location pin for 'Novo Campeche SPOT II' visible throughout the video. Maintain bright, clear colors and smooth transitions.",
+  "formatos": [
+    "feed_1x1",
+    "reels_9x16"
+  ],
+  "cenas": [
+    {
+      "numero": 1,
+      "tempo": "0-7s",
+      "tipo_cena": "broll_gerado",
+      "prompt_en": "Cinematic aerial drone shot approaching Foto aérea real de drone do bairro Novo Campeche mostrando ruas arborizadas, prédios baixos residenciais, campo verde e mar turquesa ao fundo com ondas, céu azul claro.. Golden hour, warm tones, 4K quality. No text overlays.",
+      "fala_monica": null,
+      "narracao_off": "Bem-vindo ao Novo Campeche, Florianópolis. Onde o potencial de investimento encontra a beleza natural.",
+      "lettering": "(pin) Novo Campeche, Florianópolis - SC",
+      "assets_sugeridos": [
+        "assets/vista aerea 2.png",
+        "assets/vista aerea.jpeg",
+        "assets/vista aerea.png"
+      ]
+    },
+    {
+      "numero": 2,
+      "tempo": "8-15s",
+      "tipo_cena": "gravacao_apresentadora",
+      "prompt_en": "Professional woman presenter at Monica caminhando em passarela de madeira na praia, vestido azul listrado longo, sorrindo, mar e Ilha do Campeche ao fundo, vegetação de restinga, dia ensolarado.. Confident posture, direct eye contact with camera. Cinematic 4K, warm golden hour lighting. No text overlays.",
+      "fala_monica": "Estou no Novo Campeche, um dos bairros de Florianópolis com maior faturamento em locações de curta temporada.",
+      "narracao_off": null,
+      "lettering": null,
+      "assets_sugeridos": [
+        "assets/caminho até a praia.png",
+        "assets/Mônica 2.jpeg",
+        "assets/Mônica costas.jpeg",
+        "assets/Mônica.MOV",
+        "assets/Mônica.jpeg",
+        "assets/monica-foto2.jpg"
+      ]
+    },
+    {
+      "numero": 3,
+      "tempo": "16-23s",
+      "tipo_cena": "gravacao_apresentadora",
+      "prompt_en": "Professional woman presenter at Render 3D da fachada do Novo Campeche SPOT II , prédio moderno de 4 andares com fachada em concreto, madeira ripada e vidro, letreiro 'seazone' no rooftop, 'NOVO CAMPECHE SPOT II' na fachada, vegetação tropical, bicicletas na entrada.. Confident posture, direct eye contact with camera. Cinematic 4K, warm golden hour lighting. No text overlays.",
+      "fala_monica": "A fachada do SPOT II foi pensada para alta performance em locação de curta temporada.",
+      "narracao_off": null,
+      "lettering": null,
+      "assets_sugeridos": [
+        "assets/fachada.png",
+        "assets/rooftop 2.png",
+        "assets/rooftop.png"
+      ]
+    },
+    {
+      "numero": 4,
+      "tempo": "24-35s",
+      "tipo_cena": "gravacao_apresentadora",
+      "prompt_en": "Professional woman presenter at Render 3D do rooftop do SPOT II , deck de madeira, piscina de borda infinita com LED, área gourmet com bancada, letreiro 'Novo Campeche II SPOT' em neon, vista para o bairro, céu azul.. Confident posture, direct eye contact with camera. Cinematic 4K, warm golden hour lighting. No text overlays.",
+      "fala_monica": "Com ROI projetado de 16,4% ao ano, seu rendimento mensal estimado é de R$ 5.500. Este é o Novo Campeche SPOT II. Clique em Saiba Mais.",
+      "narracao_off": null,
+      "lettering": "Saiba Mais",
+      "assets_sugeridos": [
+        "assets/vista aerea 2.png",
+        "assets/vista aerea.jpeg",
+        "assets/vista aerea.png",
+        "assets/rooftop 2.png",
+        "assets/rooftop.png"
+      ]
+    }
+  ],
+  "instrucoes_direcao": "Monica, mantenha um tom de autoridade e credibilidade, como uma investidora. Dicção clara e pausas estratégicas nos dados financeiros. Movimentos suaves e naturais.",
+  "instrucoes_edicao": "Transições suaves entre as cenas. Manter cores vivas e claras, sem escurecer imagens. Não usar molduras, bordas ou borrar laterais. Pin de localização 'Novo Campeche SPOT II' sempre visível.",
+  "trilha": "Moderna e sofisticada, transmite confianca e sucesso. Sem vocais.",
+  "assets_apresentadora": [
+    "assets/Mônica 2.jpeg",
+    "assets/Mônica costas.jpeg",
+    "assets/Mônica.MOV",
+    "assets/Mônica.jpeg",
+    "assets/monica-foto2.jpg"
+  ],
+  "assets_video_referencia": [
+    "assets/Reels-Novo Campeche II-Apresentadora-Estrutura 1.1.mp4"
+  ]
+}

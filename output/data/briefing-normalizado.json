@@ -1,0 +1,101 @@
+{
+  "_gerado_em": "2026-03-26T18:48:18.017Z",
+  "produto": {
+    "nome": "Novo Campeche SPOT II",
+    "tipo": "SPOT — Short Stay Optimized Property",
+    "estagio": "Lancamento"
+  },
+  "localizacao": {
+    "endereco": "Rua Otávio Cruz, bairro Campeche, CEP 88063-620, Florianópolis - SC",
+    "bairro": "Novo Campeche",
+    "cidade": "Florianopolis",
+    "estado": "SC",
+    "diferenciais": [
+      "Proximo ao aeroporto",
+      "Bairro em valorizacao",
+      "Acesso privilegiado"
+    ]
+  },
+  "proposta": {
+    "resumo": "Investimento imobiliario otimizado para renda passiva via aluguel por temporada",
+    "modelo": "Short stay com gestao profissional Seazone",
+    "diferenciais_gestao": [
+      "Anuncio e divulgacao",
+      "Atendimento ao hospede",
+      "Limpeza profissional",
+      "Manutencao preventiva"
+    ]
+  },
+  "percentuais": {
+    "roi_anual": "16,4%",
+    "rendimento_mensal": "R$ 5.500,00",
+    "ticket_medio": "R$ 350.190,82",
+    "valorizacao_estimada": "81%"
+  },
+  "cta": {
+    "primario": "Saiba Mais",
+    "secundario": "Fale com um Especialista"
+  },
+  "restricoes_legais": {
+    "disclaimer": "Este material tem caráter exclusivamente informativo e não constitui uma promessa de rentabilidade futura ou garantia de retorno financeiro. Os resultados financeiros do investimento dependem da performance do empreendimento após sua conclusão, especialmente de futura valorização patrimonial do imóvel e da renda gerada por sua eventual locação. A Seazone não oferece garantia de rendimento fixo, retorno mínimo ou qualquer tipo de remuneração automática sobre o capital investido.",
+    "palavras_proibidas": [
+      "garantido",
+      "certeza",
+      "prometemos",
+      "assegurado"
+    ],
+    "palavras_obrigatorias": [
+      "projetado",
+      "estimado",
+      "previsto"
+    ],
+    "regras": [
+      "Não posicionar como ticket baixo (não é investimento acessível)",
+      "Não mencionar vista mar nas unidades — vista mar só existe no rooftop",
+      "Não usar pé na areia — usar proximidade com a praia",
+      "Não mencionar distância exata da praia (metragem ou tempo de caminhada)",
+      "Não usar exclusividade da região — evitar único lançamento",
+      "Não usar as palavras: garantido, certeza, prometemos",
+      "Não usar efeitos que escureçam a imagem",
+      "Não colocar molduras no vídeo",
+      "Não borrar as laterais da tela"
+    ]
+  },
+  "pilares_comunicacao": [
+    "ROI",
+    "Localização",
+    "Rendimento mensal em reais",
+    "Fachada",
+    "Vista do atrativo"
+  ],
+  "publico_alvo": {
+    "prioridade_1": "Investidores do Sudeste (SP/MG) — perfil racional, orientado a ROI",
+    "prioridade_2": "Investidores da Região Sul (SC/PR/RS) — boa conversão, menor fricção",
+    "prioridade_3": "Investidores nacionais (RJ, BA, GO, MT, DF, PA, CE, PE)",
+    "tese": "Capital investidor majoritariamente de fora do Sul, com forte concentração no Sudeste. Convertem melhor com tese clara de retorno financeiro + localização desejada + operação profissional."
+  },
+  "tom": "Autoridade — como dono do empreendimento, não vendedor. Mais credibilidade, menos atriz.",
+  "dos": [
+    "Modelo SPOT pensado para short stay desde a origem",
+    "Gestão profissional Seazone — anúncio, atendimento, limpeza, manutenção",
+    "Investimento com foco em performance e renda passiva",
+    "Próximo ao aeroporto — diferencial logístico",
+    "Colocar SEMPRE um pin de SPOT onde é o terreno/prédio",
+    "Mudanças de take leves — transições suaves"
+  ],
+  "formatos_obrigatorios": {
+    "estatico": [
+      "feed_1x1",
+      "reels_9x16",
+      "story_9x16"
+    ],
+    "video_narrado": [
+      "feed_1x1",
+      "reels_9x16"
+    ],
+    "video_apresentadora": [
+      "feed_1x1",
+      "reels_9x16"
+    ]
+  }
+}

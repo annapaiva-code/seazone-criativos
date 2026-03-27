@@ -1,0 +1,14 @@
+{
+  "job": "VA1.1",
+  "voz": "Calm_Woman",
+  "gerado_em": "2026-03-27T19:21:15.859Z",
+  "audios": [
+    {
+      "cena": 1,
+      "tempo": "0-7s",
+      "arquivo": "output/VA1.1/narracao_cena_1.mp3",
+      "duracao_ms": 5746,
+      "tipo": "narracao_off"
+    }
+  ]
+}

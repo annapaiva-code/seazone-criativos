@@ -1,0 +1,133 @@
+{
+  "_gerado_em": "2026-03-26T18:48:57.662Z",
+  "_briefing": "Novo Campeche SPOT II",
+  "roteiros": {
+    "VN1.1": {
+      "id": "VN1.1",
+      "tipo": "video_narrado",
+      "titulo": "Investimento Estratégico em Florianópolis: Novo Campeche SPOT II",
+      "duracao": "30-40s",
+      "cenas": [
+        {
+          "numero": 1,
+          "tempo": "0-7s",
+          "descricao_visual": "Drone se aproximando de bairro litorâneo real com ruas arborizadas, prédios baixos residenciais, campo verde e mar turquesa ao fundo com ondas, céu azul claro. Pin de localização 'Novo Campeche SPOT II' fixo na tela.",
+          "lettering": "(pin) Novo Campeche, Florianópolis - SC",
+          "narracao": "Em Florianópolis, o Novo Campeche atrai investimentos estratégicos. Este bairro valorizado oferece oportunidades únicas.",
+          "assets_sugeridos": [
+            "assets/vista aerea 2.png",
+            "assets/vista aerea.jpeg",
+            "assets/vista aerea.png"
+          ]
+        },
+        {
+          "numero": 2,
+          "tempo": "8-15s",
+          "descricao_visual": "Dolly-in na fachada moderna do Novo Campeche SPOT II, com concreto, madeira ripada, vidro e vegetação tropical. O letreiro 'seazone' no rooftop e 'NOVO CAMPECHE SPOT II' na fachada são visíveis. Pin de localização 'Novo Campeche SPOT II' fixo na tela.",
+          "lettering": "",
+          "narracao": "O Novo Campeche SPOT II foi projetado para alta performance em short stay. Sua arquitetura moderna otimiza a experiência de investimento.",
+          "assets_sugeridos": [
+            "assets/fachada.png",
+            "assets/rooftop 2.png",
+            "assets/rooftop.png"
+          ]
+        },
+        {
+          "numero": 3,
+          "tempo": "16-23s",
+          "descricao_visual": "Traveling pela rua arborizada em frente ao terreno, mostrando palmeiras, prédios residenciais e vista do mar ao fundo. O empreendimento à direita com vegetação. Pin de localização 'Novo Campeche SPOT II' fixo na tela.",
+          "lettering": "ROI Projetado: 16,4% a.a.",
+          "narracao": "Projetamos um ROI de 16,4% ao ano. Com rendimento mensal estimado de R$ 5.500,00, seu capital terá valorização significativa.",
+          "assets_sugeridos": [
+            "assets/vista aerea 2.png",
+            "assets/vista aerea.jpeg",
+            "assets/vista aerea.png",
+            "assets/fachada.png"
+          ]
+        },
+        {
+          "numero": 4,
+          "tempo": "24-35s",
+          "descricao_visual": "Câmera revelando o rooftop do SPOT II, com deck de madeira, piscina de borda infinita com LED e área gourmet com bancada. O letreiro 'Novo Campeche II SPOT' em neon é visível, com vista para o bairro e céu azul. Pin de localização 'Novo Campeche SPOT II' fixo na tela.",
+          "lettering": "Saiba Mais",
+          "narracao": "Invista com autoridade. Conheça as cotas disponíveis e posicione-se no mercado de Florianópolis.",
+          "assets_sugeridos": [
+            "assets/vista aerea 2.png",
+            "assets/vista aerea.jpeg",
+            "assets/vista aerea.png",
+            "assets/rooftop 2.png",
+            "assets/rooftop.png"
+          ]
+        }
+      ],
+      "instrucoes_edicao": "Manter tom de voz grave, pausado e confiante na narração. Transições suaves entre as cenas. Não escurecer as imagens, manter cores vivas e claras. Não usar molduras, bordas ou borrar laterais. Destacar visual e auditivamente os dados financeiros. O pin de localização 'Novo Campeche SPOT II' deve estar SEMPRE visível em todas as cenas, fixo na tela."
+    },
+    "VA1.1": {
+      "id": "VA1.1",
+      "tipo": "video_apresentadora",
+      "titulo": "Novo Campeche SPOT II: Seu Investimento de Alta Performance em Florianópolis",
+      "duracao": "30-40s",
+      "cenas": [
+        {
+          "numero": 1,
+          "tempo": "0-7s",
+          "descricao_visual": "Foto aérea real de drone do bairro Novo Campeche mostrando ruas arborizadas, prédios baixos residenciais, campo verde e mar turquesa ao fundo com ondas, céu azul claro.",
+          "fala_monica": null,
+          "narracao_off": "Bem-vindo ao Novo Campeche, Florianópolis. Onde o potencial de investimento encontra a beleza natural.",
+          "lettering": "(pin) Novo Campeche, Florianópolis - SC",
+          "assets_sugeridos": [
+            "assets/vista aerea 2.png",
+            "assets/vista aerea.jpeg",
+            "assets/vista aerea.png"
+          ]
+        },
+        {
+          "numero": 2,
+          "tempo": "8-15s",
+          "descricao_visual": "Monica caminhando em passarela de madeira na praia, vestido azul listrado longo, sorrindo, mar e Ilha do Campeche ao fundo, vegetação de restinga, dia ensolarado.",
+          "fala_monica": "Estou no Novo Campeche, um dos bairros de Florianópolis com maior faturamento em locações de curta temporada.",
+          "narracao_off": null,
+          "lettering": "",
+          "assets_sugeridos": [
+            "assets/caminho até a praia.png",
+            "assets/Mônica 2.jpeg",
+            "assets/Mônica costas.jpeg",
+            "assets/Mônica.MOV",
+            "assets/Mônica.jpeg",
+            "assets/monica-foto2.jpg"
+          ]
+        },
+        {
+          "numero": 3,
+          "tempo": "16-23s",
+          "descricao_visual": "Render 3D da fachada do Novo Campeche SPOT II — prédio moderno de 4 andares com fachada em concreto, madeira ripada e vidro, letreiro 'seazone' no rooftop, 'NOVO CAMPECHE SPOT II' na fachada, vegetação tropical, bicicletas na entrada.",
+          "fala_monica": "A fachada do SPOT II foi pensada para alta performance em locação de curta temporada.",
+          "narracao_off": null,
+          "lettering": "",
+          "assets_sugeridos": [
+            "assets/fachada.png",
+            "assets/rooftop 2.png",
+            "assets/rooftop.png"
+          ]
+        },
+        {
+          "numero": 4,
+          "tempo": "24-35s",
+          "descricao_visual": "Render 3D do rooftop do SPOT II — deck de madeira, piscina de borda infinita com LED, área gourmet com bancada, letreiro 'Novo Campeche II SPOT' em neon, vista para o bairro, céu azul.",
+          "fala_monica": "Com ROI projetado de 16,4% ao ano, seu rendimento mensal estimado é de R$ 5.500. Este é o Novo Campeche SPOT II. Clique em Saiba Mais.",
+          "narracao_off": null,
+          "lettering": "Saiba Mais",
+          "assets_sugeridos": [
+            "assets/vista aerea 2.png",
+            "assets/vista aerea.jpeg",
+            "assets/vista aerea.png",
+            "assets/rooftop 2.png",
+            "assets/rooftop.png"
+          ]
+        }
+      ],
+      "instrucoes_edicao": "Transições suaves entre as cenas. Manter cores vivas e claras, sem escurecer imagens. Não usar molduras, bordas ou borrar laterais. Pin de localização 'Novo Campeche SPOT II' sempre visível.",
+      "instrucoes_direcao": "Monica, mantenha um tom de autoridade e credibilidade, como uma investidora. Dicção clara e pausas estratégicas nos dados financeiros. Movimentos suaves e naturais."
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "VN1.1",
+  "tipo": "video_narrado",
+  "duracao": "30-40s",
+  "titulo": "Novo Campeche SPOT II: O Seu Próximo Investimento Inteligente",
+  "cenas": [
+    {
+      "numero": 1,
+      "tempo": "0-7s",
+      "descricao_visual": "Vista aérea do bairro Novo Campeche, mostrando a localização do empreendimento, a praia e o mar turquesa ao fundo. O drone começa em uma vista ampla e, em um movimento suave, aproxima-se do terreno do SPOT II, realizando um leve pan para revelar mais da orla da praia.",
+      "lettering": "(pin) Novo Campeche, Florianópolis - SC",
+      "narracao": "O Novo Campeche é um dos bairros de maior valorização em Florianópolis. Sua localização estratégica atrai investidores e turistas de alto padrão."
+    },
+    {
+      "numero": 2,
+      "tempo": "8-15s",
+      "descricao_visual": "Render 3D da fachada do Novo Campeche SPOT II, um prédio moderno de 4 andares com fachada em concreto, madeira ripada e vidro, letreiro 'seazone' no rooftop, 'NOVO CAMPECHE SPOT II' na fachada, vegetação tropical e bicicletas na entrada. A câmera se move suavemente, revelando a arquitetura contemporânea do nível da rua e elevando-se lentamente para mostrar a fachada completa.",
+      "lettering": "",
+      "narracao": "Projetado para locação de curta temporada, o SPOT II otimiza sua performance. A arquitetura contemporânea garante atratividade e alta demanda."
+    },
+    {
+      "numero": 3,
+      "tempo": "16-23s",
+      "descricao_visual": "Render 3D da fachada do Novo Campeche SPOT II, um prédio moderno de 4 andares com fachada em concreto, madeira ripada e vidro, letreiro 'seazone' no rooftop, 'NOVO CAMPECHE SPOT II' na fachada, vegetação tropical e bicicletas na entrada. Uma tomada estável do nível da rua, subindo lentamente pela fachada e enfatizando detalhes do design.",
+      "lettering": "ROI Projetado: 16,4% a.a.",
+      "narracao": "Seu investimento no SPOT II pode gerar um ROI projetado de 16,4% ao ano. Com um rendimento mensal estimado de R$ 5.500,00."
+    },
+    {
+      "numero": 4,
+      "tempo": "24-35s",
+      "descricao_visual": "Render 3D do rooftop do SPOT II, mostrando um deck de madeira, piscina de borda infinita com LED, área gourmet com bancada, letreiro 'Novo Campeche II SPOT' em neon, vista para o bairro e céu azul. Um movimento suave de drone exibe toda a área do rooftop, movendo-se lentamente em direção à piscina de borda infinita com a vista do bairro.",
+      "lettering": "Saiba Mais",
+      "narracao": "Invista com inteligência, garanta seu SPOT no Novo Campeche. Fale com nossos especialistas Seazone."
+    }
+  ],
+  "instrucoes_edicao": "Manter transições suaves entre todas as cenas, sem cortes bruscos. Assegurar que o pin 'Novo Campeche SPOT II' esteja sempre presente e visível na composição das cenas visuais. Manter cores vivas e claras, sem escurecer as imagens. Não utilizar molduras, bordas ou borrões nas laterais. Sincronizar a narração com os visuais, pausando levemente nos números financeiros. Garantir que os letterings apareçam e desapareçam suavemente, sem sobrecarregar a tela.",
+  "legenda_feed": "Quer um investimento que realmente performe?\n\nO Novo Campeche SPOT II oferece um ROI projetado de 16,4% ao ano, com rendimento mensal estimado de R$ 5.500,00. Uma oportunidade para investidores racionais que buscam resultados concretos em Florianópolis.\n\nNosso modelo SPOT é pensado para short stay desde a origem, com gestão profissional Seazone, cuidando de cada detalhe. A localização privilegiada e a arquitetura moderna garantem alta demanda e valorização estimada em 81%.\n\nNão perca a chance de ter um ativo de alta rentabilidade. Fale com um especialista Seazone e descubra o poder do Novo Campeche SPOT II.\n\n#InvestimentoImobiliario #ROI #RendaPassiva #Florianopolis #NovoCampeche #Seazone #SpotII\n\nEste material tem caráter exclusivamente informativo e não constitui uma promessa de rentabilidade futura ou garantia de retorno financeiro. Os resultados financeiros do investimento dependem da performance do empreendimento após sua conclusão, especialmente de futura valorização patrimonial do imóvel e da renda gerada por sua eventual locação. A Seazone não oferece garantia de rendimento fixo, retorno mínimo ou qualquer tipo de remuneração automática sobre o capital investido.",
+  "prompt_visual_en": "A dynamic video showcasing the Novo Campeche SPOT II development. Scene 1: Drone shot starting wide over Novo Campeche neighborhood, revealing the beach and turquoise sea, smoothly zooming in towards the development's location (with 'Novo Campeche SPOT II' pin). Scene 2: Smooth camera movement revealing the modern 4-story building facade from street level, slowly elevating to show the full contemporary architecture with concrete, slatted wood, and glass elements, tropical vegetation, and bicycles at the entrance. Scene 3: Steady street-level shot, slowly panning up the facade, emphasizing design details of the modern building. Scene 4: Smooth drone shot showcasing the entire rooftop area with a wooden deck, infinity pool with LED lighting, gourmet area with a counter, and stunning views of the neighborhood. Maintain vivid, clear colors throughout. Ensure smooth transitions between all takes. No text, graphics, frames, borders, or blurred sides."
+}

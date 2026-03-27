@@ -1,0 +1,67 @@
+{
+  "_gerado_em": "2026-03-26T18:48:57.862Z",
+  "_instrucoes": "Use estes prompts para gerar clipes de video (fal.ai Kling, Minimax, Luma). Cada cena deve gerar um clipe separado que sera editado na timeline.",
+  "prompt_geral_en": "Cinematic video showcasing a modern real estate investment. Start with a drone shot approaching a vibrant coastal neighborhood in Florianópolis, Brazil, featuring lush tree-lined streets, low-rise residential buildings, green fields, and a turquoise ocean with clear blue skies. Transition smoothly to a dolly-in on the contemporary facade of a 4-story building, highlighting concrete, slatted wood, glass, and tropical vegetation. Next, a traveling shot along an palm-tree-lined street with residential buildings and a distant ocean view. Conclude with a revealing shot of a luxurious rooftop with an infinity pool, wooden deck, gourmet area, and a panoramic view of the neighborhood under a blue sky. Maintain bright, vivid colors throughout, with smooth transitions and no visual overlays or texts. The visual style should be authoritative and premium.",
+  "formatos": [
+    "feed_1x1",
+    "reels_9x16"
+  ],
+  "cenas": [
+    {
+      "numero": 1,
+      "tempo": "0-7s",
+      "prompt_en": "Cinematic aerial drone shot approaching Drone se aproximando de bairro litorâneo real com ruas arborizadas, prédios baixos residenciais, campo verde e mar turquesa ao fundo com ondas, céu azul claro. Pin de localização 'Novo Campeche SPOT II' fixo na tela.. Golden hour, warm tones, 4K quality. No text overlays.",
+      "narracao": "Em Florianópolis, o Novo Campeche atrai investimentos estratégicos. Este bairro valorizado oferece oportunidades únicas.",
+      "lettering": "(pin) Novo Campeche, Florianópolis - SC",
+      "assets_sugeridos": [
+        "assets/vista aerea 2.png",
+        "assets/vista aerea.jpeg",
+        "assets/vista aerea.png"
+      ]
+    },
+    {
+      "numero": 2,
+      "tempo": "8-15s",
+      "prompt_en": "Smooth dolly-in shot of Dolly-in na fachada moderna do Novo Campeche SPOT II, com concreto, madeira ripada, vidro e vegetação tropical. O letreiro 'seazone' no rooftop e 'NOVO CAMPECHE SPOT II' na fachada são visíveis. Pin de localização 'Novo Campeche SPOT II' fixo na tela.. Modern architecture detail, clean lines. Premium real estate style. No text overlays.",
+      "narracao": "O Novo Campeche SPOT II foi projetado para alta performance em short stay. Sua arquitetura moderna otimiza a experiência de investimento.",
+      "lettering": null,
+      "assets_sugeridos": [
+        "assets/fachada.png",
+        "assets/rooftop 2.png",
+        "assets/rooftop.png"
+      ]
+    },
+    {
+      "numero": 3,
+      "tempo": "16-23s",
+      "prompt_en": "Dynamic lifestyle montage: Traveling pela rua arborizada em frente ao terreno, mostrando palmeiras, prédios residenciais e vista do mar ao fundo. O empreendimento à direita com vegetação. Pin de localização 'Novo Campeche SPOT II' fixo na tela.. Vibrant colors, warm lighting, professional quality. No text overlays.",
+      "narracao": "Projetamos um ROI de 16,4% ao ano. Com rendimento mensal estimado de R$ 5.500,00, seu capital terá valorização significativa.",
+      "lettering": "ROI Projetado: 16,4% a.a.",
+      "assets_sugeridos": [
+        "assets/vista aerea 2.png",
+        "assets/vista aerea.jpeg",
+        "assets/vista aerea.png",
+        "assets/fachada.png"
+      ]
+    },
+    {
+      "numero": 4,
+      "tempo": "24-35s",
+      "prompt_en": "Breathtaking panoramic view: Câmera revelando o rooftop do SPOT II, com deck de madeira, piscina de borda infinita com LED e área gourmet com bancada. O letreiro 'Novo Campeche II SPOT' em neon é visível, com vista para o bairro e céu azul. Pin de localização 'Novo Campeche SPOT II' fixo na tela.. Dramatic sunset, cinematic wide angle, aspirational mood. No text overlays.",
+      "narracao": "Invista com autoridade. Conheça as cotas disponíveis e posicione-se no mercado de Florianópolis.",
+      "lettering": "Saiba Mais",
+      "assets_sugeridos": [
+        "assets/vista aerea 2.png",
+        "assets/vista aerea.jpeg",
+        "assets/vista aerea.png",
+        "assets/rooftop 2.png",
+        "assets/rooftop.png"
+      ]
+    }
+  ],
+  "instrucoes_edicao": "Manter tom de voz grave, pausado e confiante na narração. Transições suaves entre as cenas. Não escurecer as imagens, manter cores vivas e claras. Não usar molduras, bordas ou borrar laterais. Destacar visual e auditivamente os dados financeiros. O pin de localização 'Novo Campeche SPOT II' deve estar SEMPRE visível em todas as cenas, fixo na tela.",
+  "trilha": "Instrumental premium, minimalista, sem vocais. Tom inspirador e confiante.",
+  "assets_video_referencia": [
+    "assets/FEED-Narrados_Novo Campeche II 1.1.mp4"
+  ]
+}

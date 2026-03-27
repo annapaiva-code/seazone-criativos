@@ -1,0 +1,94 @@
+{
+  "produto": "Novo Campeche SPOT II",
+  "endereco": "Rua Otávio Cruz, bairro Campeche, CEP 88063-620, Florianópolis - SC",
+  "roi_percentual": "16,4%",
+  "rendimento_mensal": "R$ 5.500,00",
+  "rendimento_anual": "R$ 66.424,18",
+  "ticket_medio": "R$ 350.190,82",
+  "menor_cota": "R$ 335.291,87",
+  "valorizacao_estimada": "81%",
+  "quantidade_cotas": "49 cotas + 3 lojas",
+
+  "panorama_competitivo": {
+    "preco_medio_concorrentes": "R$ 584.166,08",
+    "preco_medio_m2": "R$ 21.284,35",
+    "metragem_media": "27,87 m²",
+    "distancia_media_atrativo": "501 metros",
+    "concorrentes_diretos": 8
+  },
+
+  "pilares": ["ROI", "Localização", "Rendimento mensal em reais", "Fachada", "Vista do atrativo"],
+
+  "caracteristicas_regiao": [
+    "Localização premium com acesso fácil a praia — a poucos minutos a pé",
+    "Praia do Novo Campeche: mar azul intenso, areia clara, ondas consistentes",
+    "Acesso próximo à Ilha do Campeche — Caribe brasileiro",
+    "Bairro com lifestyle forte: nômades digitais, expatriados, profissionais alta renda",
+    "Alta demanda turística o ano inteiro (baixa sazonalidade)",
+    "Infraestrutura urbana completa: mercados, cafés, restaurantes",
+    "Lifestyle ativo: esportes ao ar livre, corrida, bike, yoga",
+    "Valorização imobiliária consistente e escassez de oferta",
+    "Destino turístico consolidado — presença em guias de viagem"
+  ],
+
+  "dos": [
+    "Modelo SPOT pensado para short stay desde a origem",
+    "Gestão profissional Seazone — anúncio, atendimento, limpeza, manutenção",
+    "Investimento com foco em performance e renda passiva",
+    "Próximo ao aeroporto — diferencial logístico",
+    "Colocar SEMPRE um pin de SPOT onde é o terreno/prédio",
+    "Mudanças de take leves — transições suaves"
+  ],
+
+  "donts": [
+    "Não posicionar como ticket baixo (não é investimento acessível)",
+    "Não mencionar vista mar nas unidades — vista mar só existe no rooftop",
+    "Não usar pé na areia — usar proximidade com a praia",
+    "Não mencionar distância exata da praia (metragem ou tempo de caminhada)",
+    "Não usar exclusividade da região — evitar único lançamento",
+    "Não usar as palavras: garantido, certeza, prometemos",
+    "Não usar efeitos que escureçam a imagem",
+    "Não colocar molduras no vídeo",
+    "Não borrar as laterais da tela"
+  ],
+
+  "publico_alvo": {
+    "prioridade_1": "Investidores do Sudeste (SP/MG) — perfil racional, orientado a ROI",
+    "prioridade_2": "Investidores da Região Sul (SC/PR/RS) — boa conversão, menor fricção",
+    "prioridade_3": "Investidores nacionais (RJ, BA, GO, MT, DF, PA, CE, PE)",
+    "tese": "Capital investidor majoritariamente de fora do Sul, com forte concentração no Sudeste. Convertem melhor com tese clara de retorno financeiro + localização desejada + operação profissional."
+  },
+
+  "perfil_hospede": {
+    "principal": "Turismo de praia",
+    "fatores_decisao": [
+      "Praia atrativa e proximidade — deslocamento a pé",
+      "Contexto de lifestyle praiano",
+      "Rooftop com vista mar como complemento aspiracional"
+    ]
+  },
+
+  "tom": "Autoridade — como dono do empreendimento, não vendedor. Mais credibilidade, menos atriz.",
+
+  "estruturas_video_apresentadora": {
+    "estrutura_1": "Vista aérea da praia → Fachada do empreendimento → Entrada da Monica na praia → Destaque financeiro → Encerramento com rooftop + CTA",
+    "estrutura_2": "Vista aérea da praia → Entrada da Monica (ROI/rentabilidade) → Fachada ao final → Encerramento com rooftop + CTA",
+    "estrutura_3": "Abertura com fachada → Entrada da Monica (ROI/rentabilidade) → Vista aérea praia → Encerramento com rooftop + CTA"
+  },
+
+  "variacoes_obrigatorias": {
+    "por_estrutura": 5,
+    "videos_30_40s": 3,
+    "videos_10_20s": 2
+  },
+
+  "pitch": {
+    "oportunidade": "Empreendimento para investidores que buscam renda futura consistente, em uma das regiões com maior faturamento bruto de Florianópolis.",
+    "por_que": "Praia entre as mais desejadas, demanda recorrente, infraestrutura completa, alto potencial de valorização.",
+    "produto": "Pensado desde a origem para short stay. Fachada valorizada. Rooftop com vista mar. Estruturado para performance.",
+    "operacao": "Gestão Seazone — o investidor não precisa gerenciar nada. Acompanha performance com simplicidade.",
+    "para_quem": "Investidores que comparam dados, buscam renda passiva, valorizam localização e retorno financeiro."
+  },
+
+  "disclaimer": "Este material tem caráter exclusivamente informativo e não constitui uma promessa de rentabilidade futura ou garantia de retorno financeiro. Os resultados financeiros do investimento dependem da performance do empreendimento após sua conclusão, especialmente de futura valorização patrimonial do imóvel e da renda gerada por sua eventual locação. A Seazone não oferece garantia de rendimento fixo, retorno mínimo ou qualquer tipo de remuneração automática sobre o capital investido."
+}

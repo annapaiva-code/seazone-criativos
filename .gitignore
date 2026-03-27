@@ -1,0 +1,50 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente
+.env
+.env.local
+
+# Vídeos e áudios gerados (pesados)
+output/**/*.mp4
+output/**/*.wav
+output/**/*.mp3
+assets/**/*.mp4
+assets/**/*.mov
+assets/**/*.MOV
+
+# Imagens pesadas geradas por cena
+output/VN1.1/*.png
+output/VN1.1/*.jpg
+output/VA1.1/*.png
+output/VA1.1/*.jpg
+
+# Imagens originais dos estáticos (geradas — recriáveis com npm run)
+output/E1.1/*.jpg
+# Manter os _final.png (com overlay, leves)
+output/E1.1/feed_1x1.png
+output/E1.1/reels_9x16.png
+output/E1.1/story_9x16.png
+
+# Assets copiados para output (gerados pelo build)
+output/assets/
+output/logo-seazone.png
+
+# Assets fonte pesados (usar Git LFS ou baixar separadamente)
+assets/*.png
+assets/*.jpeg
+assets/*.jpg
+
+# Pasta de testes
+output/teste/
+
+# Relatórios de teste
+output/relatorio_teste.*
+
+# Arquivos temporários
+*.tmp
+*_list.txt
+
+# OS
+.DS_Store
+Thumbs.db
